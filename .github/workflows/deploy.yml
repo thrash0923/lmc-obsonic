@@ -15,17 +15,18 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Upload to Sakura by FTP
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
-        with:
-          server: ${{ secrets.FTP_SERVER }}
-          username: ${{ secrets.FTP_USERNAME }}
-          password: ${{ secrets.FTP_PASSWORD }}
-          protocol: ftp
-          port: 21
-          local-dir: ./
-          server-dir: /home/lmcobsonic/www/
-          exclude: |
-            **/.git*
-            **/.git*/**
-            **/.github/**
-            README.md
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.6
+with:
+  server: ${{ secrets.FTP_SERVER }}
+  username: ${{ secrets.FTP_USERNAME }}
+  password: ${{ secrets.FTP_PASSWORD }}
+  protocol: ftp
+  port: 21
+  local-dir: ./
+  server-dir: /home/lmcobsonic/www/
+  dangerous-clean-slate: false
+  exclude: |
+    **/.git*
+    **/.git*/**
+    **/.github/**
+    README.md
