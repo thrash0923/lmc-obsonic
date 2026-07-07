@@ -23,7 +23,7 @@ jobs:
           protocol: ftp
           port: 21
           local-dir: ./
-          server-dir: ${{ secrets.FTP_SERVER_DIR }}
+          server-dir: /home/lmcobsonic/www/
           exclude: |
             **/.git*
             **/.git*/**
