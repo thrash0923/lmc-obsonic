@@ -1,4 +1,4 @@
-const GAS_WEB_APP_URL = "YOUR_GAS_WEB_APP_URL_HERE";
+const GAS_WEB_APP_URL = "thrash0923@gmail.com";
 
 const entryForm = document.getElementById("entryForm");
 const formMessage = document.getElementById("formMessage");
