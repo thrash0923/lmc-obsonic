@@ -44,12 +44,14 @@
       <form id="entryForm" class="entry-form">
         <label>バンド名・ソロ名<input type="text" name="artist_name" autocomplete="organization"></label>
         <label>代表者名 <span class="required">必須</span><input type="text" name="representative_name" required autocomplete="name"></label>
+        <label>軽音時代のニックネーム<input type="text" name="nickname" placeholder="例：ジャイアント・ケーヨ"></label>
         <label>芸大入学年（西暦）<input type="number" name="admission_year" min="1900" max="2100" placeholder="例：1993"></label>
         <label>メールアドレス <span class="required">必須</span><input type="email" name="email" required autocomplete="email"></label>
         <label>電話番号 <span class="required">必須</span><input type="tel" name="phone" required autocomplete="tel"></label>
         <label>LINEアカウント<input type="text" name="line_account" placeholder="例：LINE IDなど"></label>
         <label>ジャンル<input type="text" name="genre" placeholder="例：ロック、弾き語り、ジャズなど"></label>
         <label>メンバー人数<input type="number" name="member_count" min="1" placeholder="例：4"></label>
+        <label>出演メンバー<textarea name="member_names" rows="5" placeholder="例：&#10;ジャイアント・ケーヨ（Dr）&#10;○○（Vo）&#10;△△（Gt）&#10;□□（Ba）"></textarea></label>
         <label>備考<textarea name="message" rows="6" placeholder="補足事項、ご質問などがあればご記入ください。"></textarea></label>
         <button type="submit" id="submitButton">エントリーする</button>
         <p id="formMessage" class="form-message" aria-live="polite"></p>
