@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="LMC OB-SONIC 2026 出演エントリーフォーム。">
+<meta property="og:title" content="出演エントリー｜LMC OB-SONIC 2026">
+<meta property="og:description" content="LMC OB-SONIC 2026 出演エントリーフォーム。">
+<meta property="og:type" content="website">
+<title>出演エントリー｜LMC OB-SONIC 2026</title>
+<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="../css/entry.css">
+</head>
+<body>
+<nav class="nav" id="siteNav">
+  <div class="nav-inner">
+    <a class="brand" href="../index.html#top">LMC OB-SONIC 2026</a>
+    <button class="hamburger" type="button" aria-label="メニューを開閉" aria-controls="globalNav" aria-expanded="false"><span></span></button>
+    <div class="nav-links" id="globalNav">
+      <a href="../index.html#about">ABOUT</a>
+      <a href="../index.html#timetable">TIME TABLE</a>
+      <a href="../index.html#bands">BANDS</a>
+      <a class="entry-link" href="./">ENTRY</a>
+      <a href="../index.html#access">ACCESS</a>
+    </div>
+  </div>
+</nav>
+<header id="top" class="hero entry-hero">
+  <div class="hero-kv">
+    <div class="wrap">
+      <div class="hero-copy" aria-label="LMC OB-SONIC 2026 エントリーフォーム">
+        <div class="kicker">LMC OB-SONIC 2026</div>
+        <h1>ENTRY<br>FORM</h1>
+        <div class="jp">出演エントリー</div>
+        <div class="tagline">出演希望の方は、以下のフォームよりエントリーしてください。</div>
+      </div>
+    </div>
+  </div>
+</header>
+<main>
+<section class="entry-section">
+  <div class="wrap">
+    <div class="entry-card">
+      <form id="entryForm" class="entry-form">
+        <label>バンド名・ソロ名<input type="text" name="artist_name" autocomplete="organization"></label>
+        <label>代表者名 <span class="required">必須</span><input type="text" name="representative_name" required autocomplete="name"></label>
+        <label>芸大入学年（西暦）<input type="number" name="admission_year" min="1900" max="2100" placeholder="例：1993"></label>
+        <label>メールアドレス <span class="required">必須</span><input type="email" name="email" required autocomplete="email"></label>
+        <label>電話番号 <span class="required">必須</span><input type="tel" name="phone" required autocomplete="tel"></label>
+        <label>LINEアカウント<input type="text" name="line_account" placeholder="例：LINE IDなど"></label>
+        <label>ジャンル<input type="text" name="genre" placeholder="例：ロック、弾き語り、ジャズなど"></label>
+        <label>メンバー人数<input type="number" name="member_count" min="1" placeholder="例：4"></label>
+        <label>備考<textarea name="message" rows="6" placeholder="補足事項、ご質問などがあればご記入ください。"></textarea></label>
+        <button type="submit" id="submitButton">エントリーする</button>
+        <p id="formMessage" class="form-message" aria-live="polite"></p>
+      </form>
+    </div>
+  </div>
+</section>
+</main>
+<footer><strong>LMC OB-SONIC 2026</strong><br>Osaka University of Arts Light Music Club OB</footer>
+<script src="../js/main.js"></script>
+<script src="../js/entry.js"></script>
+</body>
+</html>
