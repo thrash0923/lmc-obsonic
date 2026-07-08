@@ -1,4 +1,4 @@
-const GAS_WEB_APP_URL = "thrash0923@gmail.com";
+const GAS_WEB_APP_URL = "https://script.google.com/macros/s/AKfycbyx2C19BTn5Jz3P0NSmO6E033oZHplJ5NlmyaSesjI_82kyjYbxX8dyKd5M2I3rtRpN/exec";
 
 const entryForm = document.getElementById("entryForm");
 const formMessage = document.getElementById("formMessage");
