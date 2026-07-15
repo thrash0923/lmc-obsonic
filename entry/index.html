@@ -14,7 +14,7 @@
 <body>
 <nav class="nav" id="siteNav">
   <div class="nav-inner">
-    <a class="brand" href="../index.html#top">LMC OB-SONIC 2026</a>
+    <a class="brand" href="https://lmcobsonic.com/">LMC OB-SONIC 2026</a>
     <button class="hamburger" type="button" aria-label="メニューを開閉" aria-controls="globalNav" aria-expanded="false"><span></span></button>
     <div class="nav-links" id="globalNav">
       <a href="../index.html#about">ABOUT</a>
@@ -32,7 +32,11 @@
         <div class="kicker">LMC OB-SONIC 2026</div>
         <h1>ENTRY<br>FORM</h1>
         <div class="jp">出演エントリー</div>
-        <div class="tagline">出演希望の方は、以下のフォームよりエントリーしてください。</div>
+        <div class="tagline">出演希望の方は、以下のフォームよりエントリーしてください。<br>
+        バンドじゃなくてもOK！「何かやる！」だけでもOK！<br>
+        ダンス、演芸など表現手段問わず！<br>
+        <br>
+        ※主催者宛てに直接のご連絡でも構いません。</div>
       </div>
     </div>
   </div>
@@ -44,13 +48,24 @@
       <form id="entryForm" class="entry-form">
         <label>バンド名・ソロ名<input type="text" name="artist_name" autocomplete="organization"></label>
         <label>代表者名 <span class="required">必須</span><input type="text" name="representative_name" required autocomplete="name"></label>
-        <label>軽音時代のニックネーム<input type="text" name="nickname" placeholder="例：ジャイアント・ケーヨ"></label>
-        <label>芸大入学年（西暦）<input type="number" name="admission_year" min="1900" max="2100" placeholder="例：1993"></label>
+        <label>軽音時代のニックネーム<input type="text" name="nickname" placeholder="例：セバスチャン"></label>
+        <label>芸大入学年（西暦）<input type="number" name="admission_year" min="1900" max="2100" placeholder="例：1989"></label>
         <label>メールアドレス <span class="required">必須</span><input type="email" name="email" required autocomplete="email"></label>
         <label>電話番号 <span class="required">必須</span><input type="tel" name="phone" required autocomplete="tel"></label>
         <label>LINEアカウント<input type="text" name="line_account" placeholder="例：LINE IDなど"></label>
-        <label>ジャンル<input type="text" name="genre" placeholder="例：ロック、弾き語り、ジャズなど"></label>
-        <label>メンバー人数<input type="number" name="member_count" min="1" placeholder="例：4"></label>
+        <label>ジャンル<input type="text" name="genre" placeholder="例：ロック、弾き語り、ジャズ、漫談など"></label>
+        <label>メンバー人数
+          <select name="member_count" style="width:100%; max-width:280px; height:48px; padding:0 14px; font-size:16px; margin-top:8px;">
+            <option value="未定">未定</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7人以上">7人以上</option>
+          </select>
+        </label>
         <label>出演メンバー<textarea name="member_names" rows="5" placeholder="例：&#10;ジャイアント・ケーヨ（Dr）&#10;○○（Vo）&#10;△△（Gt）&#10;□□（Ba）"></textarea></label>
         <label>備考<textarea name="message" rows="6" placeholder="補足事項、ご質問などがあればご記入ください。"></textarea></label>
         <button type="submit" id="submitButton">エントリーする</button>
