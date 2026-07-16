@@ -34,3 +34,6 @@ LMC OB-SONIC Official Website
 
 ## Ver.1.5
 タイムテーブルを `data/timetable.json` から自動表示するようにしました。
+
+## Ver.1.6
+出演バンド紹介にメンバー一覧と任意リンクを追加しました。

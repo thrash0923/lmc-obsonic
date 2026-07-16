@@ -1,26 +1,31 @@
-# Ver.1.3 出演者一覧の更新方法
+# 出演バンド JSON 更新ガイド Ver.1.6
 
-出演者一覧は `data/bands.json` から自動表示されます。
-
-## 1組分の例
+掲載可能な内容：
+- バンド画像
+- バンド名
+- 紹介文
+- メンバー一覧
+- 出演時間
+- SNS・公式サイト等のリンク
 
 ```json
 {
+  "visible": true,
   "entry": "ENTRY 1",
   "name": "MONKEY RANGE",
-  "time": "16:00",
   "description": "大阪芸大軽音OBによるロックンロールバンド。",
-  "image": "images/bands/monkey-range.jpg"
+  "members": [
+    "ジャイアント・ケーヨ（Dr）",
+    "○○（Vo）"
+  ],
+  "time": "16:00",
+  "image": "images/bands/monkey-range.jpg",
+  "links": [
+    {
+      "label": "X",
+      "url": "https://x.com/example",
+      "external": true
+    }
+  ]
 }
 ```
-
-## 各項目
-
-- `entry`：出演順表示
-- `name`：出演者名・バンド名
-- `time`：出演時刻
-- `description`：紹介文
-- `image`：画像の場所。画像がない場合は空欄 `""`
-
-複数組を掲載する場合は、カンマで区切って追加します。
-JSONでは最後の項目の後ろにカンマを付けないでください。

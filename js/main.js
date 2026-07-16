@@ -89,6 +89,10 @@
         }
 
         bands.forEach(function(band){
+          if(band.visible===false){
+            return;
+          }
+
           const article=document.createElement('article');
           article.className='band-card';
 
@@ -108,24 +112,72 @@
           const body=document.createElement('div');
           body.className='band-body';
 
-          const entry=document.createElement('p');
-          entry.className='entry-label';
-          entry.textContent=band.entry || '';
+          if(band.entry){
+            const entry=document.createElement('p');
+            entry.className='entry-label';
+            entry.textContent=band.entry;
+            body.appendChild(entry);
+          }
 
           const name=document.createElement('h3');
           name.textContent=band.name || 'Coming Soon...';
-
-          const description=document.createElement('p');
-          description.textContent=band.description || 'メンバー／紹介文／SNS等は決定後に掲載します。';
-
-          body.appendChild(entry);
           body.appendChild(name);
-          body.appendChild(description);
+
+          if(band.description){
+            const description=document.createElement('p');
+            description.className='band-description';
+            description.textContent=band.description;
+            body.appendChild(description);
+          }
+
+          if(Array.isArray(band.members) && band.members.length){
+            const membersTitle=document.createElement('p');
+            membersTitle.className='band-members-title';
+            membersTitle.textContent='MEMBERS';
+            body.appendChild(membersTitle);
+
+            const members=document.createElement('ul');
+            members.className='band-members';
+            band.members.forEach(function(member){
+              const li=document.createElement('li');
+              li.textContent=member;
+              members.appendChild(li);
+            });
+            body.appendChild(members);
+          }
+
+          const meta=document.createElement('div');
+          meta.className='band-meta';
 
           if(band.time){
             const time=document.createElement('span');
-            time.textContent=band.time;
-            body.appendChild(time);
+            time.className='band-time';
+            time.textContent='出演 ' + band.time;
+            meta.appendChild(time);
+          }
+
+          if(Array.isArray(band.links)){
+            band.links.forEach(function(item){
+              if(!item || !item.url || !item.label){
+                return;
+              }
+
+              const link=document.createElement('a');
+              link.className='band-social-link';
+              link.href=item.url;
+              link.textContent=item.label;
+
+              if(item.external!==false){
+                link.target='_blank';
+                link.rel='noopener';
+              }
+
+              meta.appendChild(link);
+            });
+          }
+
+          if(meta.children.length){
+            body.appendChild(meta);
           }
 
           article.appendChild(visual);

@@ -263,3 +263,14 @@ section{position:relative;padding:82px 0;border-top:1px solid rgba(255,255,255,.
 
 /* === Ver.1.5 Timetable JSON === */
 #timetableLoading td{color:var(--muted);text-align:center;font-weight:900}
+
+
+/* === Ver.1.6 Expanded band profiles === */
+.band-description{margin:0 0 14px}
+.band-members-title{margin:16px 0 5px;color:var(--red2);font-size:.76rem;font-weight:1000;letter-spacing:.16em}
+.band-members{margin:0;padding-left:1.2em;color:#eee4d7}
+.band-members li+li{margin-top:3px}
+.band-meta{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:16px}
+.band-meta .band-time{display:inline-flex;margin:0;border:1px solid rgba(226,29,23,.55);color:#fff;background:rgba(226,29,23,.18);border-radius:999px;padding:4px 10px;font-weight:1000}
+.band-social-link{display:inline-flex;align-items:center;border:1px solid rgba(255,255,255,.2);border-radius:999px;padding:4px 10px;color:#fff;text-decoration:none;font-size:.86rem;font-weight:900;background:rgba(255,255,255,.06)}
+.band-social-link:hover{border-color:var(--red2);color:var(--red2)}
