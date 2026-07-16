@@ -259,3 +259,7 @@ section{position:relative;padding:82px 0;border-top:1px solid rgba(255,255,255,.
   html{scroll-behavior:auto}
   #backToTop{transition:none}
 }
+
+
+/* === Ver.1.5 Timetable JSON === */
+#timetableLoading td{color:var(--muted);text-align:center;font-weight:900}

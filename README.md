@@ -31,3 +31,6 @@ LMC OB-SONIC Official Website
 
 ## Ver.1.4.2
 上部へ戻るボタンのCSSを復旧し、スクロール表示判定を安定化しました。
+
+## Ver.1.5
+タイムテーブルを `data/timetable.json` から自動表示するようにしました。

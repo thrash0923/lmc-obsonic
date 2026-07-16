@@ -141,4 +141,61 @@
       });
   }
 
+
+
+  // タイムテーブルを data/timetable.json から生成
+  const timetableBody=document.querySelector('#timetable tbody');
+  const timetableLoading=document.getElementById('timetableLoading');
+
+  if(timetableBody){
+    fetch('data/timetable.json', {cache:'no-store'})
+      .then(function(response){
+        if(!response.ok){
+          throw new Error('タイムテーブルデータを取得できませんでした。');
+        }
+        return response.json();
+      })
+      .then(function(items){
+        timetableBody.innerHTML='';
+
+        if(!Array.isArray(items) || items.length===0){
+          const row=document.createElement('tr');
+          const cell=document.createElement('td');
+          cell.colSpan=3;
+          cell.textContent='タイムテーブルは決定次第掲載します。';
+          row.appendChild(cell);
+          timetableBody.appendChild(row);
+          return;
+        }
+
+        items.forEach(function(item){
+          if(item.visible===false){
+            return;
+          }
+
+          const row=document.createElement('tr');
+
+          const time=document.createElement('td');
+          time.textContent=item.time || '';
+
+          const title=document.createElement('td');
+          title.textContent=item.title || '';
+
+          const note=document.createElement('td');
+          note.textContent=item.note || '';
+
+          row.appendChild(time);
+          row.appendChild(title);
+          row.appendChild(note);
+          timetableBody.appendChild(row);
+        });
+      })
+      .catch(function(error){
+        console.error(error);
+        if(timetableLoading){
+          timetableLoading.children[0].textContent='タイムテーブルを読み込めませんでした。';
+        }
+      });
+  }
+
 })();

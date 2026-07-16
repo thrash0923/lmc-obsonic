@@ -1,0 +1,128 @@
+[
+  {
+    "time": "14:00",
+    "title": "入り",
+    "note": "出演者集合・リハーサル開始",
+    "visible": true
+  },
+  {
+    "time": "14:00〜15:00",
+    "title": "リハーサル",
+    "note": "音出し確認",
+    "visible": true
+  },
+  {
+    "time": "15:00",
+    "title": "OPEN",
+    "note": "開場",
+    "visible": true
+  },
+  {
+    "time": "16:00",
+    "title": "ENTRY 1",
+    "note": "15分枠",
+    "visible": false
+  },
+  {
+    "time": "16:15",
+    "title": "ENTRY 2",
+    "note": "15分枠",
+    "visible": false
+  },
+  {
+    "time": "16:30",
+    "title": "ENTRY 3",
+    "note": "15分枠",
+    "visible": false
+  },
+  {
+    "time": "16:45",
+    "title": "ENTRY 4",
+    "note": "15分枠",
+    "visible": false
+  },
+  {
+    "time": "17:00",
+    "title": "ENTRY 5",
+    "note": "15分枠",
+    "visible": false
+  },
+  {
+    "time": "17:15",
+    "title": "ENTRY 6",
+    "note": "15分枠",
+    "visible": false
+  },
+  {
+    "time": "17:30",
+    "title": "ENTRY 7",
+    "note": "15分枠",
+    "visible": false
+  },
+  {
+    "time": "17:45",
+    "title": "ENTRY 8",
+    "note": "15分枠",
+    "visible": false
+  },
+  {
+    "time": "18:00",
+    "title": "ENTRY 9",
+    "note": "15分枠",
+    "visible": false
+  },
+  {
+    "time": "18:15",
+    "title": "ENTRY 10",
+    "note": "15分枠",
+    "visible": false
+  },
+  {
+    "time": "18:30",
+    "title": "ENTRY 11",
+    "note": "15分枠",
+    "visible": false
+  },
+  {
+    "time": "18:45",
+    "title": "ENTRY 12",
+    "note": "15分枠",
+    "visible": false
+  },
+  {
+    "time": "19:00",
+    "title": "ENTRY 13",
+    "note": "15分枠",
+    "visible": false
+  },
+  {
+    "time": "19:15",
+    "title": "ENTRY 14",
+    "note": "15分枠",
+    "visible": false
+  },
+  {
+    "time": "19:30",
+    "title": "ENTRY 15",
+    "note": "15分枠",
+    "visible": false
+  },
+  {
+    "time": "19:45",
+    "title": "CLOSE",
+    "note": "閉会・撤収",
+    "visible": true
+  },
+  {
+    "time": "20:30",
+    "title": "完全撤収〜会場移動",
+    "note": "時間厳守",
+    "visible": true
+  },
+  {
+    "time": "21:00",
+    "title": "打ち上げ",
+    "note": "会場調整中",
+    "visible": true
+  }
+]
