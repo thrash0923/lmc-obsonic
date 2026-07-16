@@ -1,11 +1,9 @@
 /*
  * LMC OB-SONIC yearly settings
  *
- * 毎年変更する基本情報は、まず「編集する項目」だけを書き換えてください。
- * その下の自動生成項目は、編集した内容から自動で組み立てられます。
- *
- * 注意：検索結果・SNS共有用の title / description / OGP は、
- * index.html と entry/index.html の <head> 内も別途変更します。
+ * 毎年変更する基本情報は「毎年編集する項目」にまとめています。
+ * 検索結果・SNS共有用の title / description / OGP は、
+ * index.html と entry/index.html の <head> 内も別途変更してください。
  */
 (function(){
   "use strict";
@@ -20,6 +18,7 @@
     openTime:"15:00",
     startTime:"16:00",
     venueShort:"福島 THIRD STONE",
+    venueAbout:"大阪福島 THIRD STONE",
     ticket:"¥2,000［参加者全員／当日券のみ］+ 1Drink"
   };
 
@@ -32,6 +31,9 @@
     heroScheduleDisplay:`OPEN ${base.openTime} / START ${base.startTime}`,
     mainAriaLabel:`${base.eventName} ${base.year} メインタイトル`,
     entryAriaLabel:`${base.eventName} ${base.year} エントリーフォーム`,
-    entryHeading:`${base.eventName} ${base.year} 出演者募集！`
+    entryHeading:`${base.eventName} ${base.year} 出演者募集！`,
+    heroTitleHtml:`LMC<br>OB-SONIC<br>${base.year}`,
+    aboutEventText:`${base.eventNumberText}となる今回の会場は${base.venueAbout}。今回はエントリー制で15分枠の中で自由に表現してもらいます！`,
+    lastTrainNoticeDate:`${base.dateDisplay}の運行時刻は変更される可能性があります。掲載前・来場前に必ずJR各社または乗換案内で最新時刻をご確認ください。`
   });
 })();

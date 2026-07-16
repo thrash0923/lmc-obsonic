@@ -17,3 +17,8 @@ LMC OB-SONIC Official Website
 - `<meta name="description">`
 - `<meta property="og:title">`
 - `<meta property="og:description">`
+
+## Current version
+
+**Ver.1.2**  
+`site-config.js` 本格導入。開催年、日付、OPEN／START、会場、料金、第何回かなどを一元管理します。

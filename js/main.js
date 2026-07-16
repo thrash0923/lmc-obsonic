@@ -9,6 +9,13 @@
       }
     });
 
+    document.querySelectorAll('[data-site-html]').forEach(function(element){
+      const key=element.getAttribute('data-site-html');
+      if(Object.prototype.hasOwnProperty.call(config,key)){
+        element.innerHTML=config[key];
+      }
+    });
+
     document.querySelectorAll('[data-site-aria-label]').forEach(function(element){
       const key=element.getAttribute('data-site-aria-label');
       if(Object.prototype.hasOwnProperty.call(config,key)){
