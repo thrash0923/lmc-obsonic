@@ -22,3 +22,6 @@ LMC OB-SONIC Official Website
 
 **Ver.1.2**  
 `site-config.js` 本格導入。開催年、日付、OPEN／START、会場、料金、第何回かなどを一元管理します。
+
+## Ver.1.3
+出演者一覧を `data/bands.json` から自動生成します。詳しくは `BANDS-JSON-GUIDE.md` を参照してください。
