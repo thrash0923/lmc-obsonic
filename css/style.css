@@ -106,3 +106,15 @@ section{position:relative;padding:82px 0;border-top:1px solid rgba(255,255,255,.
   .nav-links a{width:92vw!important;font-size:clamp(1.75rem,9vw,3rem)!important}
   .nav-links .entry-link{padding:17px 18px!important}
 }
+
+
+#backToTop{
+position:fixed;right:24px;bottom:24px;width:54px;height:54px;border:none;border-radius:50%;
+background:#c60000;color:#fff;font-size:20px;font-weight:700;cursor:pointer;
+box-shadow:0 6px 18px rgba(0,0,0,.35);opacity:0;visibility:hidden;
+transform:translateY(10px);transition:all .25s ease;z-index:9999}
+#backToTop.show{opacity:1;visibility:visible;transform:translateY(0)}
+#backToTop:hover{background:#e00000;transform:translateY(-2px)}
+@media(max-width:768px){
+#backToTop{right:16px;bottom:16px;width:50px;height:50px}
+}
