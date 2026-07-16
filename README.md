@@ -25,3 +25,9 @@ LMC OB-SONIC Official Website
 
 ## Ver.1.3
 出演者一覧を `data/bands.json` から自動生成します。詳しくは `BANDS-JSON-GUIDE.md` を参照してください。
+
+## Ver.1.4
+出演ガイドと会場常設機材一覧を全面リニューアルしました。
+
+## Ver.1.4.2
+上部へ戻るボタンのCSSを復旧し、スクロール表示判定を安定化しました。

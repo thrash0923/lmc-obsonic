@@ -49,13 +49,12 @@
   // Back to Top
   const back=document.getElementById('backToTop');
   if(back){
-    window.addEventListener('scroll',function(){
-      if(window.scrollY>300){
-        back.classList.add('show');
-      }else{
-        back.classList.remove('show');
-      }
-    });
+    function updateBackToTop(){
+      back.classList.toggle('show',window.scrollY>300);
+    }
+
+    updateBackToTop();
+    window.addEventListener('scroll',updateBackToTop,{passive:true});
 
     back.addEventListener('click',function(){
       window.scrollTo({

@@ -174,3 +174,88 @@ section{position:relative;padding:82px 0;border-top:1px solid rgba(255,255,255,.
     padding:14px 18px!important;
   }
 }
+
+
+/* === Ver.1.4 Player guide and equipment list === */
+.player-guide{display:grid;gap:34px}
+.player-guide-intro{margin-bottom:0}
+.player-subsection{padding:0;border:0;background:none}
+.subsection-head{margin-bottom:18px}
+.subsection-head h3{margin:.15em 0 0;font-size:clamp(1.65rem,3vw,2.5rem);line-height:1.15}
+.guide-grid,.equipment-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.guide-card,.equipment-card{padding:20px;border:1px solid var(--line);border-radius:18px;background:linear-gradient(180deg,rgba(18,14,14,.88),rgba(8,6,6,.78));box-shadow:0 18px 46px rgba(0,0,0,.26)}
+.guide-card h4,.equipment-card h4{margin:0 0 10px;color:var(--red2);font-size:1.05rem;letter-spacing:.04em}
+.guide-card p,.equipment-card p{margin:0;color:#eee4d7}
+.equipment-card ul{margin:0;padding-left:1.2em}
+.equipment-card li+li{margin-top:5px}
+.equipment-card dl{margin:0}
+.equipment-card dl>div{display:grid;grid-template-columns:minmax(130px,.8fr) 1.2fr;gap:12px;padding:8px 0;border-bottom:1px solid rgba(255,255,255,.08)}
+.equipment-card dl>div:last-child{border-bottom:0}
+.equipment-card dt{color:var(--muted);font-weight:900}
+.equipment-card dd{margin:0;font-weight:800}
+.equipment-maker{margin:0 0 8px!important;color:var(--muted)!important;font-weight:900}
+.equipment-note{margin-top:12px!important;padding-top:12px;border-top:1px solid rgba(255,255,255,.1);font-size:.9rem;color:var(--muted)!important}
+.equipment-footnote{margin-top:18px}
+@media(max-width:760px){
+  .guide-grid,.equipment-grid{grid-template-columns:1fr}
+  .equipment-card dl>div{grid-template-columns:1fr;gap:2px}
+}
+
+
+/* === Ver.1.4.2 Back to top maintenance === */
+#backToTop{
+  position:fixed;
+  right:24px;
+  bottom:24px;
+  z-index:9999;
+  display:grid;
+  place-items:center;
+  width:54px;
+  height:54px;
+  padding:0;
+  border:1px solid rgba(255,255,255,.22);
+  border-radius:50%;
+  background:linear-gradient(135deg,var(--red),var(--red2));
+  color:#fff;
+  font-size:20px;
+  font-weight:1000;
+  line-height:1;
+  cursor:pointer;
+  box-shadow:0 10px 28px rgba(0,0,0,.48),0 0 24px rgba(226,29,23,.28);
+  opacity:0;
+  visibility:hidden;
+  pointer-events:none;
+  transform:translateY(12px) scale(.94);
+  transition:opacity .22s ease,visibility .22s ease,transform .22s ease,filter .18s ease;
+}
+
+#backToTop.show{
+  opacity:1;
+  visibility:visible;
+  pointer-events:auto;
+  transform:translateY(0) scale(1);
+}
+
+#backToTop:hover{
+  filter:brightness(1.12);
+  transform:translateY(-2px) scale(1.04);
+}
+
+#backToTop:focus-visible{
+  outline:3px solid #fff;
+  outline-offset:3px;
+}
+
+@media(max-width:560px){
+  #backToTop{
+    right:16px;
+    bottom:16px;
+    width:50px;
+    height:50px;
+  }
+}
+
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  #backToTop{transition:none}
+}
