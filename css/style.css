@@ -303,3 +303,42 @@ section{position:relative;padding:82px 0;border-top:1px solid rgba(255,255,255,.
   .band-card-v161 .band-body{padding:22px}
   .band-performance-time{align-items:flex-start;flex-direction:column;gap:4px}
 }
+
+
+/* === Ver.1.6.1 Band card layout fix === */
+/* 新カードは横長2カラムなので、出演バンド一覧は1列で表示する */
+#bands .bands{
+  grid-template-columns:minmax(0,1fr);
+}
+
+/* Grid/Flex内で内容がカード幅を押し広げないようにする */
+.band-card-v161,
+.band-card-v161 .band-visual,
+.band-card-v161 .band-body{
+  min-width:0;
+  width:100%;
+}
+
+/* NO IMAGE時も画像エリアの高さを新カード仕様に統一 */
+.band-card-v161 .band-visual.noimage{
+  min-height:330px;
+  height:auto;
+}
+
+/* 長いバンド名・紹介文でもカード外へ飛び出さない */
+.band-name,
+.band-description,
+.band-member-row dd{
+  overflow-wrap:anywhere;
+  word-break:break-word;
+}
+
+@media(max-width:760px){
+  #bands .bands{
+    grid-template-columns:minmax(0,1fr);
+  }
+
+  .band-card-v161 .band-visual.noimage{
+    min-height:220px;
+  }
+}
