@@ -2,11 +2,28 @@
   {
     "visible": true,
     "entry": "ENTRY 1",
-    "name": "Coming Soon...",
-    "description": "メンバー／紹介文／SNS等は決定後に掲載します。",
-    "members": [],
-    "time": "16:00",
-    "image": "",
-    "links": []
+    "name": "DrxZERO",
+    "description": "88～90期生による激速短バンド。\n今年もJOEは席を外しております。",
+    "members": [
+      {
+        "part": "Vo.",
+        "name": "尾崎"
+      },
+      {
+        "part": "Gt.",
+        "name": "桑江"
+      },
+      {
+        "part": "Ba.",
+        "name": "ドバス"
+      },
+      {
+        "part": "Dr.",
+        "name": "ケーヨ"
+      }
+    ],
+    "startTime": "16:00",
+    "performanceTime": "16:00～16:15",
+    "image": ""
   }
 ]

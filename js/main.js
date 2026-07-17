@@ -94,9 +94,11 @@
           }
 
           const article=document.createElement('article');
-          article.className='band-card';
+          article.className='band-card band-card-v161';
 
           const visual=document.createElement('div');
+          visual.className='band-visual';
+
           if(band.image){
             const img=document.createElement('img');
             img.className='band-image';
@@ -105,21 +107,30 @@
             img.loading='lazy';
             visual.appendChild(img);
           }else{
-            visual.className='noimage';
+            visual.classList.add('noimage');
             visual.textContent='NO IMAGE';
           }
+
+          const stage=document.createElement('div');
+          stage.className='band-stage';
+
+          const stageLabel=document.createElement('span');
+          stageLabel.className='band-stage-label';
+          stageLabel.textContent='STAGE';
+
+          const stageTime=document.createElement('strong');
+          stageTime.className='band-stage-time';
+          stageTime.textContent=band.startTime || band.time || '';
+
+          stage.appendChild(stageLabel);
+          stage.appendChild(stageTime);
+          visual.appendChild(stage);
 
           const body=document.createElement('div');
           body.className='band-body';
 
-          if(band.entry){
-            const entry=document.createElement('p');
-            entry.className='entry-label';
-            entry.textContent=band.entry;
-            body.appendChild(entry);
-          }
-
           const name=document.createElement('h3');
+          name.className='band-name';
           name.textContent=band.name || 'Coming Soon...';
           body.appendChild(name);
 
@@ -131,54 +142,54 @@
           }
 
           if(Array.isArray(band.members) && band.members.length){
+            const divider=document.createElement('div');
+            divider.className='band-divider';
+            body.appendChild(divider);
+
             const membersTitle=document.createElement('p');
             membersTitle.className='band-members-title';
             membersTitle.textContent='MEMBERS';
             body.appendChild(membersTitle);
 
-            const members=document.createElement('ul');
-            members.className='band-members';
+            const members=document.createElement('dl');
+            members.className='band-members-table';
+
             band.members.forEach(function(member){
-              const li=document.createElement('li');
-              li.textContent=member;
-              members.appendChild(li);
+              const row=document.createElement('div');
+              row.className='band-member-row';
+
+              const part=document.createElement('dt');
+              const memberName=document.createElement('dd');
+
+              if(typeof member==='string'){
+                const pieces=member.split(/\s+/);
+                part.textContent=pieces.shift() || '';
+                memberName.textContent=pieces.join(' ');
+              }else{
+                part.textContent=member.part || '';
+                memberName.textContent=member.name || '';
+              }
+
+              row.appendChild(part);
+              row.appendChild(memberName);
+              members.appendChild(row);
             });
+
             body.appendChild(members);
           }
 
-          const meta=document.createElement('div');
-          meta.className='band-meta';
+          const timeWrap=document.createElement('div');
+          timeWrap.className='band-performance-time';
 
-          if(band.time){
-            const time=document.createElement('span');
-            time.className='band-time';
-            time.textContent='出演 ' + band.time;
-            meta.appendChild(time);
-          }
+          const timeLabel=document.createElement('span');
+          timeLabel.textContent='出演予定';
 
-          if(Array.isArray(band.links)){
-            band.links.forEach(function(item){
-              if(!item || !item.url || !item.label){
-                return;
-              }
+          const timeValue=document.createElement('strong');
+          timeValue.textContent=band.performanceTime || band.time || '';
 
-              const link=document.createElement('a');
-              link.className='band-social-link';
-              link.href=item.url;
-              link.textContent=item.label;
-
-              if(item.external!==false){
-                link.target='_blank';
-                link.rel='noopener';
-              }
-
-              meta.appendChild(link);
-            });
-          }
-
-          if(meta.children.length){
-            body.appendChild(meta);
-          }
+          timeWrap.appendChild(timeLabel);
+          timeWrap.appendChild(timeValue);
+          body.appendChild(timeWrap);
 
           article.appendChild(visual);
           article.appendChild(body);
