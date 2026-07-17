@@ -1,12 +1,12 @@
 [
   {
     "visible": true,
-    "entry": "ENTRY 1",
+    "entry": "",
     "name": "Coming Soon...",
-    "description": "メンバー／紹介文／SNS等は決定後に掲載します。",
+    "description": "出演者情報は決定次第公開します。",
     "members": [],
-    "time": "16:00",
-    "image": "",
-    "links": []
+    "startTime": "",
+    "performanceTime": "",
+    "image": ""
   }
 ]
