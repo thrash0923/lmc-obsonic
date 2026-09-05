@@ -21,20 +21,19 @@ if (entryForm) {
 
     fetch(GAS_WEB_APP_URL, {
       method: "POST",
+      mode: "no-cors",
       body: new FormData(entryForm)
     })
-      .then((response) => response.json())
-      .then((data) => {
-        if (data.result !== "success") throw new Error("送信エラー");
-        formMessage.textContent = "送信が完了しました。ありがとうございます。";
+      .then(() => {
+        formMessage.textContent = "エントリーを受け付けました。ありがとうございます！";
         formMessage.className = "form-message success";
         entryForm.reset();
+        submitButton.textContent = "送信済み";
       })
-      .catch(() => {
-        formMessage.textContent = "送信に失敗しました。時間をおいて再度お試しください。";
+      .catch((error) => {
+        console.error("Entry form submission failed:", error);
+        formMessage.textContent = "送信できませんでした。通信環境をご確認のうえ、もう一度お試しください。";
         formMessage.className = "form-message error";
-      })
-      .finally(() => {
         submitButton.disabled = false;
         submitButton.textContent = "エントリーする";
       });
