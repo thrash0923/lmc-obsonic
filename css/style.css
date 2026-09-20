@@ -342,3 +342,23 @@ section{position:relative;padding:82px 0;border-top:1px solid rgba(255,255,255,.
     min-height:220px;
   }
 }
+
+
+/* STAGING: compact band images */
+@media (min-width: 761px){
+  .band-card-v161{
+    grid-template-columns:minmax(210px,.65fr) 1.35fr;
+    min-height:270px;
+  }
+  .band-card-v161 .band-visual,
+  .band-card-v161 .band-image{
+    min-height:270px;
+  }
+}
+@media (max-width: 760px){
+  .band-card-v161 .band-visual,
+  .band-card-v161 .band-image{
+    min-height:180px;
+    max-height:240px;
+  }
+}
