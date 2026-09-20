@@ -5,12 +5,12 @@
     "members": [],
     "startTime": "",
     "performanceTime": "",
-    "image": "",
+    "image": "images/NO IMAGE.png",
     "visible": true
   },
   {
     "name": "おしんa.k.aバク（SQUIRE）",
-    "description": "打ち込み",
+    "description": "ドラマーですが、一曲だけですが、打ち込みで歌わせてください。\nオリジナルです。",
     "members": [
       {
         "part": "",
@@ -19,12 +19,12 @@
     ],
     "startTime": "",
     "performanceTime": "",
-    "image": "",
+    "image": "images/NO IMAGE.png",
     "visible": true
   },
   {
     "name": "すぎよひろしとホットカルテット",
-    "description": "ロック（エアロスミスカバー）",
+    "description": "諸々未確定",
     "members": [
       {
         "part": "Vo",
@@ -49,7 +49,7 @@
     ],
     "startTime": "",
     "performanceTime": "",
-    "image": "",
+    "image": "images/NO IMAGE.png",
     "visible": true
   },
   {
@@ -58,24 +58,24 @@
     "members": [
       {
         "part": "",
-        "name": "OZK"
+        "name": "OxZxK"
       },
       {
         "part": "",
-        "name": "KUWAE"
+        "name": "KxWxE"
       },
       {
         "part": "",
-        "name": "DOBASS"
+        "name": "DxBxS"
       },
       {
         "part": "",
-        "name": "K-yo"
+        "name": "KxIxy"
       }
     ],
     "startTime": "",
     "performanceTime": "",
-    "image": "",
+    "image": "images/drxzero.png",
     "visible": true
   },
   {
@@ -84,30 +84,21 @@
     "members": [],
     "startTime": "",
     "performanceTime": "",
-    "image": "",
+    "image": "images/keiichi.JPG",
     "visible": true
   },
   {
-    "name": "タケ",
-    "description": "",
-    "members": [],
-    "startTime": "",
-    "performanceTime": "",
-    "image": "",
-    "visible": true
-  },
-  {
-    "name": "猪熊祐志バンド",
+    "name": "猪熊イトスネイク",
     "description": "ホワイトスネイク",
     "members": [],
     "startTime": "",
     "performanceTime": "",
-    "image": "",
+    "image": "images/inokuma.JPG",
     "visible": true
   },
   {
     "name": "SNB",
-    "description": "打ち込みエレクトロ",
+    "description": "全員硬直必至",
     "members": [
       {
         "part": "",
@@ -116,7 +107,7 @@
     ],
     "startTime": "",
     "performanceTime": "",
-    "image": "",
+    "image": "images/NO IMAGE.png",
     "visible": true
   },
   {
@@ -142,7 +133,7 @@
     ],
     "startTime": "",
     "performanceTime": "",
-    "image": "",
+    "image": "images/blackdog.png",
     "visible": true
   },
   {
@@ -172,12 +163,12 @@
     ],
     "startTime": "",
     "performanceTime": "",
-    "image": "",
+    "image": "images/zakiandthebeeboyz.png",
     "visible": true
   },
   {
-    "name": "和田アキ子",
-    "description": "ニューミュージック",
+    "name": "チャリティー紅白歌合戦\n紅組：和田アキ子",
+    "description": "ガチ歌勝負",
     "members": [
       {
         "part": "",
@@ -186,12 +177,12 @@
     ],
     "startTime": "",
     "performanceTime": "",
-    "image": "",
+    "image": "images/NO IMAGE.png",
     "visible": true
   },
   {
-    "name": "北島三郎",
-    "description": "演歌",
+    "name": "チャリティー紅白歌合戦\n白組：北島三郎",
+    "description": "ガチ歌勝負",
     "members": [
       {
         "part": "",
@@ -200,7 +191,16 @@
     ],
     "startTime": "",
     "performanceTime": "",
-    "image": "",
+    "image": "images/NO IMAGE.png",
+    "visible": true
+  },
+  {
+    "name": "なんばひろみバンド",
+    "description": "",
+    "members": [],
+    "startTime": "",
+    "performanceTime": "",
+    "image": "images/nanba.jpg",
     "visible": true
   }
 ]
