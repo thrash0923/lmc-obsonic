@@ -1,30 +1,6 @@
 [
   {
-    "name": "DzTG",
-    "description": "ニューミュージック",
-    "members": [],
-    "startTime": "",
-    "performanceTime": "",
-    "image": "images/NO IMAGE.png",
-    "visible": true,
-    "order": 1
-  },
-  {
-    "name": "おしんa.k.aバク（SQUIRE）",
-    "description": "ドラマーですが、一曲だけですが、打ち込みで歌わせてください。\nオリジナルです。",
-    "members": [
-      {
-        "part": "",
-        "name": "おしん"
-      }
-    ],
-    "startTime": "",
-    "performanceTime": "",
-    "image": "images/NO IMAGE.png",
-    "visible": true,
-    "order": 2
-  },
-  {
+    "order": 1,
     "name": "すぎよひろしとホットカルテット",
     "description": "諸々未確定",
     "members": [
@@ -52,72 +28,30 @@
     "startTime": "",
     "performanceTime": "",
     "image": "images/NO IMAGE.png",
-    "visible": true,
-    "order": 3
+    "visible": true
   },
   {
-    "name": "Dr.ZERO",
-    "description": "THRASH",
-    "members": [
-      {
-        "part": "",
-        "name": "OxZxK"
-      },
-      {
-        "part": "",
-        "name": "KxWxE"
-      },
-      {
-        "part": "",
-        "name": "DxBxS"
-      },
-      {
-        "part": "",
-        "name": "KxIxy"
-      }
-    ],
-    "startTime": "",
-    "performanceTime": "",
-    "image": "images/drxzero.png",
-    "visible": true,
-    "order": 4
-  },
-  {
-    "name": "敬一バンド",
-    "description": "ROCK",
+    "order": 2,
+    "name": "DzTG",
+    "description": "ニューミュージック",
     "members": [],
-    "startTime": "",
-    "performanceTime": "",
-    "image": "images/keiichi.JPG",
-    "visible": true,
-    "order": 5
-  },
-  {
-    "name": "猪熊イトスネイク",
-    "description": "ホワイトスネイク",
-    "members": [],
-    "startTime": "",
-    "performanceTime": "",
-    "image": "images/inokuma.JPG",
-    "visible": true,
-    "order": 6
-  },
-  {
-    "name": "SNB",
-    "description": "全員硬直必至",
-    "members": [
-      {
-        "part": "",
-        "name": "シノブ"
-      }
-    ],
     "startTime": "",
     "performanceTime": "",
     "image": "images/NO IMAGE.png",
-    "visible": true,
-    "order": 7
+    "visible": true
   },
   {
+    "order": 3,
+    "name": "なんばひろみバンド",
+    "description": "",
+    "members": [],
+    "startTime": "",
+    "performanceTime": "",
+    "image": "images/nanba.jpg",
+    "visible": true
+  },
+  {
+    "order": 4,
     "name": "BLACK DOG",
     "description": "ハードロック",
     "members": [
@@ -141,10 +75,87 @@
     "startTime": "",
     "performanceTime": "",
     "image": "images/blackdog.png",
-    "visible": true,
-    "order": 8
+    "visible": true
   },
   {
+    "order": 5,
+    "name": "おしんa.k.aバク（SQUIRE）",
+    "description": "ドラマーですが、一曲だけですが、打ち込みで歌わせてください。\nオリジナルです。",
+    "members": [
+      {
+        "part": "",
+        "name": "おしん"
+      }
+    ],
+    "startTime": "",
+    "performanceTime": "",
+    "image": "images/NO IMAGE.png",
+    "visible": true
+  },
+  {
+    "order": 6,
+    "name": "SNB",
+    "description": "全員硬直必至",
+    "members": [
+      {
+        "part": "",
+        "name": "シノブ"
+      }
+    ],
+    "startTime": "",
+    "performanceTime": "",
+    "image": "images/NO IMAGE.png",
+    "visible": true
+  },
+  {
+    "order": 7,
+    "name": "敬一バンド",
+    "description": "ROCK",
+    "members": [],
+    "startTime": "",
+    "performanceTime": "",
+    "image": "images/keiichi.JPG",
+    "visible": true
+  },
+  {
+    "order": 8,
+    "name": "猪熊イトスネイク",
+    "description": "ホワイトスネイク",
+    "members": [],
+    "startTime": "",
+    "performanceTime": "",
+    "image": "images/inokuma.JPG",
+    "visible": true
+  },
+  {
+    "order": 9,
+    "name": "Dr.ZERO",
+    "description": "THRASH",
+    "members": [
+      {
+        "part": "",
+        "name": "OxZxK"
+      },
+      {
+        "part": "",
+        "name": "KxWxE"
+      },
+      {
+        "part": "",
+        "name": "DxBxS"
+      },
+      {
+        "part": "",
+        "name": "KxIxy"
+      }
+    ],
+    "startTime": "",
+    "performanceTime": "",
+    "image": "images/drxzero.png",
+    "visible": true
+  },
+  {
+    "order": 10,
     "name": "ZAKI & THE BEE BOYZ",
     "description": "J-POP",
     "members": [
@@ -172,10 +183,10 @@
     "startTime": "",
     "performanceTime": "",
     "image": "images/zakiandthebeeboyz.png",
-    "visible": true,
-    "order": 9
+    "visible": true
   },
   {
+    "order": 11,
     "name": "チャリティー紅白歌合戦\n紅組：和田アキ子",
     "description": "ガチ歌勝負",
     "members": [
@@ -187,10 +198,10 @@
     "startTime": "",
     "performanceTime": "",
     "image": "images/NO IMAGE.png",
-    "visible": true,
-    "order": 10
+    "visible": true
   },
   {
+    "order": 12,
     "name": "チャリティー紅白歌合戦\n白組：北島三郎",
     "description": "ガチ歌勝負",
     "members": [
@@ -202,17 +213,6 @@
     "startTime": "",
     "performanceTime": "",
     "image": "images/NO IMAGE.png",
-    "visible": true,
-    "order": 11
-  },
-  {
-    "name": "なんばひろみバンド",
-    "description": "",
-    "members": [],
-    "startTime": "",
-    "performanceTime": "",
-    "image": "images/nanba.jpg",
-    "visible": true,
-    "order": 12
+    "visible": true
   }
 ]
