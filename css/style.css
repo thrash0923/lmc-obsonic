@@ -431,3 +431,58 @@ section{position:relative;padding:82px 0;border-top:1px solid rgba(255,255,255,.
     max-height:none;
   }
 }
+
+
+/* STAGING: band card v2 layout - title top, image left, details right */
+.band-card-v161{
+  display:block;
+  min-height:0;
+  padding:26px 28px 28px;
+}
+.band-card-v161 > .band-name{
+  margin:0 0 22px;
+  text-align:left;
+}
+.band-content-v2{
+  display:grid;
+  grid-template-columns:minmax(240px,.75fr) 1.25fr;
+  gap:28px;
+  align-items:start;
+}
+.band-content-v2 .band-visual{
+  width:100%;
+  min-height:0;
+  border-radius:14px;
+}
+.band-content-v2 .band-image{
+  width:100%;
+  height:auto;
+  min-height:0;
+  object-fit:contain;
+}
+.band-content-v2 .band-body{
+  width:100%;
+  padding:0;
+}
+.band-genre-v2{
+  margin:0 0 18px;
+  font-size:1.05rem;
+  font-weight:900;
+}
+.band-genre-v2 span{
+  display:block;
+  margin-bottom:5px;
+  color:var(--red2);
+  font-size:.74rem;
+  font-weight:1000;
+  letter-spacing:.18em;
+}
+@media(max-width:760px){
+  .band-card-v161{
+    padding:22px;
+  }
+  .band-content-v2{
+    grid-template-columns:1fr;
+    gap:22px;
+  }
+}
