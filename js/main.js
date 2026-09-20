@@ -143,7 +143,17 @@
           const name=document.createElement('h3');
           name.className='band-name';
           name.textContent=band.name || 'Coming Soon...';
-          body.appendChild(name);
+          article.appendChild(name);
+
+          const content=document.createElement('div');
+          content.className='band-content-v2';
+
+          if(band.genre){
+            const genre=document.createElement('p');
+            genre.className='band-genre-v2';
+            genre.innerHTML='<span>GENRE</span>' + band.genre;
+            body.appendChild(genre);
+          }
 
           if(band.description){
             const description=document.createElement('p');
@@ -203,9 +213,10 @@
           body.appendChild(timeWrap);
 
           if(!hideVisual){
-            article.appendChild(visual);
+            content.appendChild(visual);
           }
-          article.appendChild(body);
+          content.appendChild(body);
+          article.appendChild(content);
           bandsContainer.appendChild(article);
         });
       })
