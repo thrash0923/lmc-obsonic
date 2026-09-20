@@ -151,7 +151,7 @@
           if(band.genre){
             const genre=document.createElement('p');
             genre.className='band-genre-v2';
-            genre.innerHTML='<span>GENRE</span>' + band.genre;
+            genre.textContent=band.genre;
             body.appendChild(genre);
           }
 
