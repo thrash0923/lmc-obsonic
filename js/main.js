@@ -104,10 +104,13 @@
           const article=document.createElement('article');
           article.className='band-card band-card-v161';
 
+          const hideVisual=String(band.name || '').includes('チャリティー紅白歌合戦');
           const visual=document.createElement('div');
           visual.className='band-visual';
 
-          if(band.image){
+          if(hideVisual){
+            article.classList.add('band-card-no-visual');
+          }else if(band.image){
             const img=document.createElement('img');
             img.className='band-image';
             img.src=band.image;
@@ -199,7 +202,9 @@
           timeWrap.appendChild(timeValue);
           body.appendChild(timeWrap);
 
-          article.appendChild(visual);
+          if(!hideVisual){
+            article.appendChild(visual);
+          }
           article.appendChild(body);
           bandsContainer.appendChild(article);
         });
