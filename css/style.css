@@ -404,3 +404,30 @@ section{position:relative;padding:82px 0;border-top:1px solid rgba(255,255,255,.
 .band-card-v161.band-card-no-visual .band-body{
   grid-column:1/-1;
 }
+
+
+/* STAGING: band images fit to image-column width without cropping */
+.band-card-v161 .band-visual{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.band-card-v161 .band-image{
+  display:block;
+  width:100%;
+  height:auto;
+  min-height:0;
+  max-height:none;
+  object-fit:contain;
+}
+.band-card-v161 .band-visual.noimage{
+  display:grid;
+}
+@media(max-width:760px){
+  .band-card-v161 .band-image{
+    width:100%;
+    height:auto;
+    min-height:0;
+    max-height:none;
+  }
+}
