@@ -104,7 +104,7 @@
           const article=document.createElement('article');
           article.className='band-card band-card-v161';
 
-          const hideVisual=String(band.name || '').includes('チャリティー紅白歌合戦');
+          const hideVisual=false;
           const visual=document.createElement('div');
           visual.className='band-visual';
 
