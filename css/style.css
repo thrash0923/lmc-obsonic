@@ -394,3 +394,13 @@ section{position:relative;padding:82px 0;border-top:1px solid rgba(255,255,255,.
   line-height:inherit!important;
   align-self:auto!important;
 }
+
+
+/* STAGING: charity red-white cards intentionally have no image area */
+.band-card-v161.band-card-no-visual{
+  grid-template-columns:minmax(0,1fr)!important;
+  min-height:0;
+}
+.band-card-v161.band-card-no-visual .band-body{
+  grid-column:1/-1;
+}
