@@ -103,7 +103,7 @@
 
           // STAGING override: 紅白2組は出演管理シートの画像指定より優先
           if(String(band.name || '').includes('チャリティー紅白歌合戦')){
-            band.image='images/WHOSCOMINGHERE.png?v=20260920-2';
+            band.image='images/kouhaku.png?v=20260920-3';
           }
 
           const article=document.createElement('article');
