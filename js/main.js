@@ -122,21 +122,6 @@
             visual.textContent='NO IMAGE';
           }
 
-          const stage=document.createElement('div');
-          stage.className='band-stage';
-
-          const stageLabel=document.createElement('span');
-          stageLabel.className='band-stage-label';
-          stageLabel.textContent='STAGE';
-
-          const stageTime=document.createElement('strong');
-          stageTime.className='band-stage-time';
-          stageTime.textContent=band.startTime || band.time || '';
-
-          stage.appendChild(stageLabel);
-          stage.appendChild(stageTime);
-          visual.appendChild(stage);
-
           const body=document.createElement('div');
           body.className='band-body';
 
@@ -203,10 +188,10 @@
           timeWrap.className='band-performance-time';
 
           const timeLabel=document.createElement('span');
-          timeLabel.textContent='出演予定';
+          timeLabel.textContent='STAGE';
 
           const timeValue=document.createElement('strong');
-          timeValue.textContent=band.performanceTime || band.time || '';
+          timeValue.textContent=band.startTime || band.time || '';
 
           timeWrap.appendChild(timeLabel);
           timeWrap.appendChild(timeValue);
