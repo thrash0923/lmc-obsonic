@@ -384,3 +384,13 @@ section{position:relative;padding:82px 0;border-top:1px solid rgba(255,255,255,.
     box-shadow:none!important;
   }
 }
+
+
+/* STAGING: align ENTRY with other global nav items */
+.nav-links .entry-link,
+.nav-links .entry-link:hover{
+  margin:0!important;
+  padding:0!important;
+  line-height:inherit!important;
+  align-self:auto!important;
+}
