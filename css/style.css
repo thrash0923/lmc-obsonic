@@ -486,3 +486,15 @@ section{position:relative;padding:82px 0;border-top:1px solid rgba(255,255,255,.
     gap:22px;
   }
 }
+
+
+/* STAGING: genre treatment v2 */
+.band-genre-v2{
+  margin:0 0 18px;
+  padding:10px 0;
+  color:#fff;
+  border-top:1px solid var(--red2);
+  border-bottom:1px solid var(--red2);
+  font-size:1.05rem;
+  font-weight:900;
+}
