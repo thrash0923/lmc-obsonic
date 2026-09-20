@@ -1,12 +1,206 @@
 [
   {
-    "visible": true,
-    "entry": "",
-    "name": "Coming Soon...",
-    "description": "出演者情報は決定次第公開します。",
+    "name": "DzTG",
+    "description": "ニューミュージック",
     "members": [],
     "startTime": "",
     "performanceTime": "",
-    "image": ""
+    "image": "",
+    "visible": true
+  },
+  {
+    "name": "おしんa.k.aバク（SQUIRE）",
+    "description": "打ち込み",
+    "members": [
+      {
+        "part": "",
+        "name": "おしん"
+      }
+    ],
+    "startTime": "",
+    "performanceTime": "",
+    "image": "",
+    "visible": true
+  },
+  {
+    "name": "すぎよひろしとホットカルテット",
+    "description": "ロック（エアロスミスカバー）",
+    "members": [
+      {
+        "part": "Vo",
+        "name": "ジョジョ（杉生 裕）"
+      },
+      {
+        "part": "Gt",
+        "name": "コロ井（木下 弘康）"
+      },
+      {
+        "part": "Gt",
+        "name": "めっしゅ（大荒 幸彦）"
+      },
+      {
+        "part": "Ba",
+        "name": "える（上 徹之）"
+      },
+      {
+        "part": "Dr",
+        "name": "ハカセ（山下 誠烈）"
+      }
+    ],
+    "startTime": "",
+    "performanceTime": "",
+    "image": "",
+    "visible": true
+  },
+  {
+    "name": "Dr.ZERO",
+    "description": "THRASH",
+    "members": [
+      {
+        "part": "",
+        "name": "OZK"
+      },
+      {
+        "part": "",
+        "name": "KUWAE"
+      },
+      {
+        "part": "",
+        "name": "DOBASS"
+      },
+      {
+        "part": "",
+        "name": "K-yo"
+      }
+    ],
+    "startTime": "",
+    "performanceTime": "",
+    "image": "",
+    "visible": true
+  },
+  {
+    "name": "敬一バンド",
+    "description": "ROCK",
+    "members": [],
+    "startTime": "",
+    "performanceTime": "",
+    "image": "",
+    "visible": true
+  },
+  {
+    "name": "タケ",
+    "description": "",
+    "members": [],
+    "startTime": "",
+    "performanceTime": "",
+    "image": "",
+    "visible": true
+  },
+  {
+    "name": "猪熊祐志バンド",
+    "description": "ホワイトスネイク",
+    "members": [],
+    "startTime": "",
+    "performanceTime": "",
+    "image": "",
+    "visible": true
+  },
+  {
+    "name": "SNB",
+    "description": "打ち込みエレクトロ",
+    "members": [
+      {
+        "part": "",
+        "name": "シノブ"
+      }
+    ],
+    "startTime": "",
+    "performanceTime": "",
+    "image": "",
+    "visible": true
+  },
+  {
+    "name": "BLACK DOG",
+    "description": "ハードロック",
+    "members": [
+      {
+        "part": "Vo",
+        "name": "津嘉山"
+      },
+      {
+        "part": "Ba",
+        "name": "伊丹"
+      },
+      {
+        "part": "Dr",
+        "name": "北田"
+      },
+      {
+        "part": "Gt",
+        "name": "桑江"
+      }
+    ],
+    "startTime": "",
+    "performanceTime": "",
+    "image": "",
+    "visible": true
+  },
+  {
+    "name": "ZAKI & THE BEE BOYZ",
+    "description": "J-POP",
+    "members": [
+      {
+        "part": "",
+        "name": "ZAKI"
+      },
+      {
+        "part": "",
+        "name": "ケーヨ"
+      },
+      {
+        "part": "",
+        "name": "ヤス"
+      },
+      {
+        "part": "",
+        "name": "ユパ"
+      },
+      {
+        "part": "",
+        "name": "ダイスケ"
+      }
+    ],
+    "startTime": "",
+    "performanceTime": "",
+    "image": "",
+    "visible": true
+  },
+  {
+    "name": "和田アキ子",
+    "description": "ニューミュージック",
+    "members": [
+      {
+        "part": "",
+        "name": "岡島"
+      }
+    ],
+    "startTime": "",
+    "performanceTime": "",
+    "image": "",
+    "visible": true
+  },
+  {
+    "name": "北島三郎",
+    "description": "演歌",
+    "members": [
+      {
+        "part": "",
+        "name": "ケーヨ"
+      }
+    ],
+    "startTime": "",
+    "performanceTime": "",
+    "image": "",
+    "visible": true
   }
 ]
