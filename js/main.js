@@ -88,6 +88,14 @@
           return;
         }
 
+        bands.sort(function(a,b){
+          const ao=Number(a.order);
+          const bo=Number(b.order);
+          const av=Number.isFinite(ao) && ao>0 ? ao : Number.MAX_SAFE_INTEGER;
+          const bv=Number.isFinite(bo) && bo>0 ? bo : Number.MAX_SAFE_INTEGER;
+          return av-bv;
+        });
+
         bands.forEach(function(band){
           if(band.visible===false){
             return;
