@@ -65,12 +65,12 @@
   }
 
 
-  // 出演者一覧を data/bands.json から生成
+  // STAGING: 出演管理シート（Apps Script）から確認用出演者一覧を生成
   const bandsContainer=document.querySelector('#bands .bands');
   const bandsLoading=document.getElementById('bandsLoading');
 
   if(bandsContainer){
-    fetch('data/bands.json', {cache:'no-store'})
+    fetch('https://script.google.com/macros/s/AKfycbyx2C19BTn5Jz3P0NSmO6E033oZHplJ5NlmyaSesjI_82kyjYbxX8dyKd5M2I3rtRpN/exec', {cache:'no-store', redirect:'follow'})
       .then(function(response){
         if(!response.ok){
           throw new Error('出演者データを取得できませんでした。');
