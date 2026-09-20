@@ -362,3 +362,25 @@ section{position:relative;padding:82px 0;border-top:1px solid rgba(255,255,255,.
     max-height:240px;
   }
 }
+
+
+/* STAGING: global menu ENTRY simplified */
+.nav-links .entry-link,
+.nav-links .entry-link:hover{
+  color:var(--red)!important;
+  background:transparent!important;
+  border:0!important;
+  border-radius:0!important;
+  box-shadow:none!important;
+  filter:none!important;
+  transform:none!important;
+}
+@media (max-width:760px){
+  .nav-links .entry-link,
+  .nav-links .entry-link:hover{
+    color:var(--red)!important;
+    background:transparent!important;
+    border:0!important;
+    box-shadow:none!important;
+  }
+}
