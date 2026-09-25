@@ -118,8 +118,7 @@
             img.loading='lazy';
             visual.appendChild(img);
           }else{
-            visual.classList.add('noimage');
-            visual.textContent='NO IMAGE';
+            article.classList.add('band-card-no-image');
           }
 
           const body=document.createElement('div');
