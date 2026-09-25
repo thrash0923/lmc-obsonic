@@ -505,3 +505,10 @@ section{position:relative;padding:82px 0;border-top:1px solid rgba(255,255,255,.
 
 
 
+
+
+/* ENTRY: use the same text color as the other global navigation items */
+.nav-links .entry-link,
+.nav-links .entry-link:hover{
+  color:inherit!important;
+}
