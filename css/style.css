@@ -512,3 +512,10 @@ section{position:relative;padding:82px 0;border-top:1px solid rgba(255,255,255,.
 .nav-links .entry-link:hover{
   color:inherit!important;
 }
+
+
+/* Highlight BANDS in the global navigation */
+.nav-links .bands-link,
+.nav-links .bands-link:hover{
+  color:var(--red)!important;
+}
