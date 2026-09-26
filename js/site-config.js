@@ -8,6 +8,12 @@
 (function(){
   "use strict";
 
+  /* Google Analytics 4 */
+  const analyticsScript=document.createElement("script");
+  analyticsScript.src="/js/ga4.js?v=20260926";
+  analyticsScript.async=true;
+  document.head.appendChild(analyticsScript);
+
   /* ===== 毎年編集する項目 ===== */
   const base={
     year:"2026",
