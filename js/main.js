@@ -117,9 +117,32 @@
           return av-bv;
         });
 
+        const stagingStartTimes={
+          '杉山田洋とホット・カルテット':'16:00',
+          'なんばひろみ ＆ Maximum Circus':'16:15',
+          'BLACK DOG':'16:30',
+          'DzTG':'16:45',
+          'ZAKI & THE BEE BOYZ':'17:00',
+          '敬一バンド':'17:15',
+          'おしん a.k.a バク（SQUIRE）':'17:30',
+          'SNB':'17:45',
+          '黒田ヒロシとラブ・アフェアーズ':'18:00',
+          'Dr.ZERO':'18:15',
+          'ドーター岡島閣下':'18:30',
+          '猪熊イトスネイク':'18:45',
+          'GELDNESS':'19:00',
+          'チャリティー紅白歌合戦 紅組：和田アキ子':'19:15',
+          'チャリティー紅白歌合戦 白組：北島三郎':'19:30'
+        };
+
         bands.forEach(function(band){
           if(band.visible===false){
             return;
+          }
+
+          const normalizedBandName=normalizeBandName(band.name);
+          if(stagingStartTimes[normalizedBandName]){
+            band.startTime=stagingStartTimes[normalizedBandName];
           }
 
           const article=document.createElement('article');
