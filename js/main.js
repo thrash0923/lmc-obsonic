@@ -88,11 +88,32 @@
           return;
         }
 
+        // STAGING: タイムテーブル確定順で出演バンドを表示
+        const stagingBandOrder=[
+          '杉山田洋とホット・カルテット',
+          'なんばひろみ ＆ Maximum Circus',
+          'BLACK DOG',
+          'DzTG',
+          'ZAKI & THE BEE BOYZ',
+          '敬一バンド',
+          'おしん a.k.a バク（SQUIRE）',
+          'SNB',
+          '黒田ヒロシとラブ・アフェアーズ',
+          'Dr.ZERO',
+          'ドーター岡島閣下',
+          '猪熊イトスネイク',
+          'GELDNESS',
+          'チャリティー紅白歌合戦 紅組：和田アキ子',
+          'チャリティー紅白歌合戦 白組：北島三郎'
+        ];
+        const normalizeBandName=function(name){
+          return String(name || '').replace(/\s+/g,' ').trim();
+        };
         bands.sort(function(a,b){
-          const ao=Number(a.order);
-          const bo=Number(b.order);
-          const av=Number.isFinite(ao) && ao>0 ? ao : Number.MAX_SAFE_INTEGER;
-          const bv=Number.isFinite(bo) && bo>0 ? bo : Number.MAX_SAFE_INTEGER;
+          const ai=stagingBandOrder.indexOf(normalizeBandName(a.name));
+          const bi=stagingBandOrder.indexOf(normalizeBandName(b.name));
+          const av=ai>=0 ? ai : Number.MAX_SAFE_INTEGER;
+          const bv=bi>=0 ? bi : Number.MAX_SAFE_INTEGER;
           return av-bv;
         });
 
