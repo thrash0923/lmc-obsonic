@@ -25,55 +25,55 @@
   },
   {
     "time": "16:15",
-    "title": "DzTG",
-    "note": "15分枠",
-    "visible": true
-  },
-  {
-    "time": "16:30",
     "title": "なんばひろみ ＆ Maximum Circus",
     "note": "15分枠",
     "visible": true
   },
   {
-    "time": "16:45",
+    "time": "16:30",
     "title": "BLACK DOG",
     "note": "15分枠",
     "visible": true
   },
   {
+    "time": "16:45",
+    "title": "DzTG",
+    "note": "15分枠",
+    "visible": true
+  },
+  {
     "time": "17:00",
-    "title": "おしん a.k.a バク（SQUIRE）",
+    "title": "ZAKI & THE BEE BOYZ",
     "note": "15分枠",
     "visible": true
   },
   {
     "time": "17:15",
-    "title": "SNB",
-    "note": "15分枠",
-    "visible": true
-  },
-  {
-    "time": "17:30",
-    "title": "黒田ヒロシとラブ・アフェアーズ",
-    "note": "15分枠",
-    "visible": true
-  },
-  {
-    "time": "17:45",
     "title": "敬一バンド",
     "note": "15分枠",
     "visible": true
   },
   {
+    "time": "17:30",
+    "title": "おしん a.k.a バク（SQUIRE）",
+    "note": "15分枠",
+    "visible": true
+  },
+  {
+    "time": "17:45",
+    "title": "SNB",
+    "note": "15分枠",
+    "visible": true
+  },
+  {
     "time": "18:00",
-    "title": "猪熊イトスネイク",
+    "title": "黒田ヒロシとラブ・アフェアーズ",
     "note": "15分枠",
     "visible": true
   },
   {
     "time": "18:15",
-    "title": "GELDNESS",
+    "title": "Dr.ZERO",
     "note": "15分枠",
     "visible": true
   },
@@ -85,13 +85,13 @@
   },
   {
     "time": "18:45",
-    "title": "Dr.ZERO",
+    "title": "猪熊イトスネイク",
     "note": "15分枠",
     "visible": true
   },
   {
     "time": "19:00",
-    "title": "ZAKI & THE BEE BOYZ",
+    "title": "GELDNESS",
     "note": "15分枠",
     "visible": true
   },
