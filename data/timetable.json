@@ -20,109 +20,103 @@
   {
     "time": "16:00",
     "title": "杉山田洋とホット・カルテット",
-    "note": "15分枠",
+    "note": "15分",
     "visible": true
   },
   {
     "time": "16:15",
     "title": "なんばひろみ ＆ Maximum Circus",
-    "note": "15分枠",
+    "note": "15分",
     "visible": true
   },
   {
     "time": "16:30",
     "title": "BLACK DOG",
-    "note": "15分枠",
+    "note": "15分",
     "visible": true
   },
   {
     "time": "16:45",
     "title": "DzTG",
-    "note": "15分枠",
+    "note": "15分",
     "visible": true
   },
   {
     "time": "17:00",
     "title": "ZAKI & THE BEE BOYZ",
-    "note": "15分枠",
+    "note": "10分",
     "visible": true
   },
   {
-    "time": "17:15",
+    "time": "17:10",
     "title": "敬一バンド",
-    "note": "15分枠",
+    "note": "15分",
     "visible": true
   },
   {
-    "time": "17:30",
+    "time": "17:25",
     "title": "おしん a.k.a バク（SQUIRE）",
-    "note": "15分枠",
+    "note": "15分",
     "visible": true
   },
   {
-    "time": "17:45",
+    "time": "17:40",
     "title": "SNB",
-    "note": "15分枠",
+    "note": "15分",
     "visible": true
   },
   {
-    "time": "18:00",
+    "time": "17:55",
     "title": "黒田ヒロシとラブ・アフェアーズ",
-    "note": "15分枠",
+    "note": "15分",
     "visible": true
   },
   {
-    "time": "18:15",
+    "time": "18:10",
     "title": "Dr.ZERO",
-    "note": "15分枠",
+    "note": "10分",
     "visible": true
   },
   {
-    "time": "18:30",
+    "time": "18:20",
     "title": "ドーター岡島閣下",
-    "note": "15分枠",
+    "note": "15分",
     "visible": true
   },
   {
-    "time": "18:45",
+    "time": "18:35",
     "title": "猪熊イトスネイク",
-    "note": "15分枠",
+    "note": "15分",
     "visible": true
   },
   {
-    "time": "19:00",
+    "time": "18:50",
     "title": "GELDNESS",
-    "note": "15分枠",
+    "note": "15分",
+    "visible": true
+  },
+  {
+    "time": "19:05",
+    "title": "チャリティー紅白歌合戦 紅組：和田アキ子",
+    "note": "10分",
     "visible": true
   },
   {
     "time": "19:15",
-    "title": "チャリティー紅白歌合戦 紅組：和田アキ子",
-    "note": "15分枠",
+    "title": "チャリティー紅白歌合戦 白組：北島三郎",
+    "note": "10分",
+    "visible": true
+  },
+  {
+    "time": "19:25",
+    "title": "閉会の言葉",
+    "note": "MC・5分",
     "visible": true
   },
   {
     "time": "19:30",
-    "title": "チャリティー紅白歌合戦 白組：北島三郎",
-    "note": "15分枠",
-    "visible": true
-  },
-  {
-    "time": "19:45",
-    "title": "CLOSE",
-    "note": "閉会・撤収",
-    "visible": true
-  },
-  {
-    "time": "20:30",
-    "title": "完全撤収〜会場移動",
-    "note": "時間厳守",
-    "visible": true
-  },
-  {
-    "time": "21:00",
-    "title": "打ち上げ",
-    "note": "会場調整中",
+    "title": "会場にて打ち上げ",
+    "note": "120分",
     "visible": true
   }
 ]
