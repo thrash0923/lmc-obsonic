@@ -2,11 +2,11 @@
   {
     "time": "14:00",
     "title": "入り",
-    "note": "出演者集合・リハーサル開始",
+    "note": "",
     "visible": true
   },
   {
-    "time": "14:00〜15:00",
+    "time": "14:00",
     "title": "リハーサル",
     "note": "音出し確認",
     "visible": true
@@ -18,111 +18,117 @@
     "visible": true
   },
   {
+    "time": "15:50",
+    "title": "START",
+    "note": "開演",
+    "visible": true
+  },
+  {
     "time": "16:00",
-    "title": "ENTRY 1",
-    "note": "15分枠",
-    "visible": false
+    "title": "杉山田洋とホット・カルテット",
+    "note": "15分",
+    "visible": true
   },
   {
     "time": "16:15",
-    "title": "ENTRY 2",
-    "note": "15分枠",
-    "visible": false
+    "title": "なんばひろみ ＆ Maximum Circus",
+    "note": "15分",
+    "visible": true
   },
   {
     "time": "16:30",
-    "title": "ENTRY 3",
-    "note": "15分枠",
-    "visible": false
+    "title": "BLACK DOG",
+    "note": "15分",
+    "visible": true
   },
   {
     "time": "16:45",
-    "title": "ENTRY 4",
-    "note": "15分枠",
-    "visible": false
+    "title": "DzTG",
+    "note": "15分",
+    "visible": true
   },
   {
     "time": "17:00",
-    "title": "ENTRY 5",
-    "note": "15分枠",
-    "visible": false
+    "title": "ピロウズのコピーバンド",
+    "note": "15分",
+    "visible": true
   },
   {
     "time": "17:15",
-    "title": "ENTRY 6",
-    "note": "15分枠",
-    "visible": false
+    "title": "ZAKI & THE BEE BOYZ",
+    "note": "10分",
+    "visible": true
   },
   {
-    "time": "17:30",
-    "title": "ENTRY 7",
-    "note": "15分枠",
-    "visible": false
+    "time": "17:25",
+    "title": "敬一バンド",
+    "note": "15分",
+    "visible": true
   },
   {
     "time": "17:45",
-    "title": "ENTRY 8",
-    "note": "15分枠",
-    "visible": false
+    "title": "おしん a.k.a バク（SQUIRE）",
+    "note": "15分",
+    "visible": true
   },
   {
     "time": "18:00",
-    "title": "ENTRY 9",
-    "note": "15分枠",
-    "visible": false
+    "title": "SNB",
+    "note": "15分",
+    "visible": true
   },
   {
-    "time": "18:15",
-    "title": "ENTRY 10",
-    "note": "15分枠",
-    "visible": false
+    "time": "18:20",
+    "title": "黒田ヒロシとラブ・アフェアーズ",
+    "note": "15分",
+    "visible": true
   },
   {
-    "time": "18:30",
-    "title": "ENTRY 11",
-    "note": "15分枠",
-    "visible": false
+    "time": "18:35",
+    "title": "Dr.ZERO",
+    "note": "15分",
+    "visible": true
   },
   {
-    "time": "18:45",
-    "title": "ENTRY 12",
-    "note": "15分枠",
-    "visible": false
+    "time": "18:50",
+    "title": "ドーター岡島閣下",
+    "note": "15分",
+    "visible": true
   },
   {
-    "time": "19:00",
-    "title": "ENTRY 13",
-    "note": "15分枠",
-    "visible": false
+    "time": "19:05",
+    "title": "GELDNESS",
+    "note": "15分",
+    "visible": true
   },
   {
-    "time": "19:15",
-    "title": "ENTRY 14",
-    "note": "15分枠",
-    "visible": false
+    "time": "19:20",
+    "title": "猪熊イトスネイク",
+    "note": "15分",
+    "visible": true
   },
   {
-    "time": "19:30",
-    "title": "ENTRY 15",
-    "note": "15分枠",
-    "visible": false
+    "time": "19:40",
+    "title": "チャリティー紅白歌合戦　紅組：和田アキ子",
+    "note": "10分",
+    "visible": true
   },
   {
-    "time": "19:45",
+    "time": "19:50",
+    "title": "チャリティー紅白歌合戦　白組：北島三郎",
+    "note": "10分",
+    "visible": true
+  },
+  {
+    "time": "20:05",
     "title": "CLOSE",
-    "note": "閉会・撤収",
+    "note": "閉会",
     "visible": true
   },
   {
-    "time": "20:30",
-    "title": "完全撤収〜会場移動",
-    "note": "時間厳守",
-    "visible": true
-  },
-  {
-    "time": "21:00",
+    "time": "20:15",
     "title": "打ち上げ",
-    "note": "会場調整中",
+    "note": "演奏会場にて箱打ち上げ",
     "visible": true
   }
 ]
