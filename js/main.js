@@ -73,7 +73,7 @@
       const cleanup=function(){ try{ delete window[callbackName]; }catch(e){} script.remove(); };
       window[callbackName]=function(data){ cleanup(); resolve(data); };
       script.onerror=function(){ cleanup(); reject(new Error('timetable JSONP load error')); };
-      script.src='https://script.google.com/macros/s/AKfycbyx2C19BTn5Jz3P0NSmO6E033oZHplJ5NImyaSesjl_82kyjYbxX8dyKd5M2I3rtRpN/exec?mode=timetable&callback='+encodeURIComponent(callbackName)+'&ts='+Date.now();
+      script.src='https://script.google.com/macros/s/AKfycbyx2C19BTn5Jz3P0NSmO6E033oZHplJ5NlmyaSesjI_82kyjYbxX8dyKd5M2I3rtRpN/exec?mode=timetable&callback='+encodeURIComponent(callbackName)+'&ts='+Date.now();
       document.head.appendChild(script);
     });
   }
@@ -314,7 +314,7 @@
       delete window[callbackName];
       script.remove();
     };
-    script.src='https://script.google.com/macros/s/AKfycbyx2C19BTn5Jz3P0NSmO6E033oZHplJ5NImyaSesjl_82kyjYbxX8dyKd5M2I3rtRpN/exec?mode=timetable&callback='+encodeURIComponent(callbackName)+'&ts='+Date.now();
+    script.src='https://script.google.com/macros/s/AKfycbyx2C19BTn5Jz3P0NSmO6E033oZHplJ5NlmyaSesjI_82kyjYbxX8dyKd5M2I3rtRpN/exec?mode=timetable&callback='+encodeURIComponent(callbackName)+'&ts='+Date.now();
     document.head.appendChild(script);
   }
 
