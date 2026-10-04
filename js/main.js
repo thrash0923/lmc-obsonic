@@ -121,10 +121,11 @@
         // BAND紹介のSTAGE時刻は、確認用タイテと同じデータを参照する
         const stagingStartTimes={};
         try{
-          const timetableResponse=await fetch('data/timetable-staging.json?ts='+Date.now(),{cache:'no-store'});
+          const timetableResponse=await fetch('https://script.google.com/macros/s/AKfycbyx2C19BTn5Jz3P0NSmO6E033oZHplJ5NImyaSesjl_82kyjYbxX8dyKd5M2I3rtRpN/exec?mode=timetable&ts='+Date.now(),{cache:'no-store'});
           if(timetableResponse.ok){
-            const timetableItems=await timetableResponse.json();
-            if(Array.isArray(timetableItems)){
+            const timetableData=await timetableResponse.json();
+            const timetableItems=(timetableData && Array.isArray(timetableData.timetable)) ? timetableData.timetable : [];
+            if(timetableItems.length){
               timetableItems.forEach(function(item){
                 const key=normalizeBandName(item.title);
                 if(stagingBandOrder.indexOf(key)>=0 && item.time){
@@ -273,20 +274,20 @@
 
 
 
-  // STAGING: 確認用タイムテーブル
-  // タイテ進行表の確認用スナップショット。編集は必ず /test で先に確認し、本番は明示指示後のみ更新。
+  // STAGING: タイテ進行表をApps Script APIから自動取得
   const timetableBody=document.querySelector('#timetable tbody');
   if(timetableBody){
-    const timetableUrl='data/timetable-staging.json?ts='+Date.now();
-    fetch(timetableUrl,{cache:'no-store'})
+    fetch('https://script.google.com/macros/s/AKfycbyx2C19BTn5Jz3P0NSmO6E033oZHplJ5NImyaSesjl_82kyjYbxX8dyKd5M2I3rtRpN/exec?mode=timetable&ts='+Date.now(),{cache:'no-store'})
       .then(function(response){
-        if(!response.ok) throw new Error('staging timetable HTTP '+response.status);
+        if(!response.ok) throw new Error('timetable API HTTP '+response.status);
         return response.json();
       })
-      .then(function(items){
-        if(!Array.isArray(items) || !items.length) throw new Error('タイムテーブルデータが空です。');
+      .then(function(data){
+        if(!data || data.result!=='success' || !Array.isArray(data.timetable)){
+          throw new Error((data&&data.message)||'タイムテーブルAPIの応答が不正です。');
+        }
         timetableBody.innerHTML='';
-        items.forEach(function(item){
+        data.timetable.forEach(function(item){
           const row=document.createElement('tr');
           ['time','title','note'].forEach(function(key){
             const td=document.createElement('td');
