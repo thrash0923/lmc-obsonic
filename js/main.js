@@ -278,63 +278,68 @@
   const timetableLoading=document.getElementById('timetableLoading');
 
   if(timetableBody){
-    fetch('https://docs.google.com/spreadsheets/d/1uMhS_oL0Qbsb0WZeh02J9tKLGszrzARhLqwIEaAinKA/gviz/tq?tqx=out:json&sheet=' + encodeURIComponent('タイテ進行表') + '&range=A3:F100', {cache:'no-store'})
-      .then(function(response){ return response.text(); })
+    const timetableUrl='https://docs.google.com/spreadsheets/d/1uMhS_oL0Qbsb0WZeh02J9tKLGszrzARhLqwIEaAinKA/gviz/tq?tqx=out:json&sheet='
+      + encodeURIComponent('タイテ進行表') + '&range=A1:G100';
+
+    fetch(timetableUrl,{cache:'no-store'})
+      .then(function(response){
+        if(!response.ok) throw new Error('タイテ進行表 HTTP '+response.status);
+        return response.text();
+      })
       .then(function(text){
-        const match=text.match(/google\.visualization\.Query\.setResponse\((.*)\);?$/s);
-        if(!match){ throw new Error('タイテ進行表を取得できませんでした。'); }
-        const payload=JSON.parse(match[1]);
+        const prefix='google.visualization.Query.setResponse(';
+        const p=text.indexOf(prefix);
+        const q=text.lastIndexOf(');');
+        if(p<0 || q<0) throw new Error('タイテ進行表の応答形式を確認できませんでした。');
+        const payload=JSON.parse(text.slice(p+prefix.length,q));
+        if(payload.status==='error') throw new Error('タイテ進行表: '+JSON.stringify(payload.errors||[]));
+
         const rows=(payload.table && payload.table.rows) || [];
-        const cell=function(row,index){ return row && row.c && row.c[index] ? (row.c[index].f ?? row.c[index].v ?? '') : ''; };
+        const cell=function(row,index){
+          const c=row && row.c && row.c[index];
+          if(!c) return '';
+          return c.f != null ? String(c.f) : (c.v != null ? String(c.v) : '');
+        };
         const items=[];
-        // 上部設定
-        if(rows[0]) items.push({time:cell(rows[0],1),title:'入り',note:'出演者集合'});
-        if(rows[1]) items.push({time:cell(rows[1],1),title:'リハーサル',note:'音出し確認'});
-        if(rows[2]) items.push({time:cell(rows[2],1),title:'OPEN',note:'開場'});
-        // A10:F100: BANDだけでなくMC・説明・閉会挨拶などの自由進行も表示
-        rows.slice(7).forEach(function(r){
-          const order=cell(r,0), name=cell(r,1), type=cell(r,2), mins=cell(r,4), start=cell(r,5);
-          if(order && name){
+
+        // 上部設定 A1:G8
+        items.push({time:cell(rows[2],1),title:'入り',note:'出演者集合'});
+        items.push({time:cell(rows[3],1),title:'リハーサル開始',note:''});
+        items.push({time:cell(rows[4],1),title:'OPEN',note:'開場'});
+        items.push({time:cell(rows[5],1),title:'START',note:''});
+
+        // 進行表 A11:G100。種別BANDのみを確認ページに表示。
+        // MC等の内部進行は時間計算には使うが、公開タイテには出さない。
+        rows.slice(10).forEach(function(r){
+          const order=cell(r,0);
+          const name=cell(r,1);
+          const type=cell(r,2).trim().toUpperCase();
+          const mins=cell(r,4);
+          const startTime=cell(r,5);
+          if(order && name && type==='BAND'){
             items.push({
-              time:start,
-              title:String(name).replace(/\n/g,' '),
+              time:startTime,
+              title:name.replace(/\n/g,' '),
               note:mins ? mins+'分' : ''
             });
           }
         });
-        if(rows[4]) items.push({time:cell(rows[4],1),title:'CLOSE',note:'閉会'});
-        return items;
+
+        items.push({time:cell(rows[7],1),title:'CLOSE',note:'閉会'});
+        return items.filter(function(item){ return item.time || item.title; });
       })
       .then(function(items){
-
         timetableBody.innerHTML='';
-
-        if(!Array.isArray(items) || items.length===0){
-          const row=document.createElement('tr');
-          const cell=document.createElement('td');
-          cell.colSpan=3;
-          cell.textContent='タイムテーブルは決定次第掲載します。';
-          row.appendChild(cell);
-          timetableBody.appendChild(row);
-          return;
-        }
+        if(!items.length) throw new Error('表示できるタイムテーブルがありません。');
 
         items.forEach(function(item){
-          if(item.visible===false){
-            return;
-          }
-
           const row=document.createElement('tr');
-
           const time=document.createElement('td');
-          time.textContent=item.time || '';
-
           const title=document.createElement('td');
-          title.textContent=item.title || '';
-
           const note=document.createElement('td');
+          time.textContent=item.time || '';
+          title.textContent=item.title || '';
           note.textContent=item.note || '';
-
           row.appendChild(time);
           row.appendChild(title);
           row.appendChild(note);
@@ -343,8 +348,14 @@
       })
       .catch(function(error){
         console.error(error);
-        if(timetableLoading){
-          timetableLoading.children[0].textContent='タイムテーブルを読み込めませんでした。';
+        if(timetableBody){
+          timetableBody.innerHTML='';
+          const row=document.createElement('tr');
+          const cellEl=document.createElement('td');
+          cellEl.colSpan=3;
+          cellEl.textContent='タイムテーブルを読み込めませんでした。';
+          row.appendChild(cellEl);
+          timetableBody.appendChild(row);
         }
       });
   }
