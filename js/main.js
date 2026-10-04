@@ -66,6 +66,18 @@
 
 
   // STAGING: 出演管理シート（Apps Script）から確認用出演者一覧を生成
+  function loadTimetableJsonp(){
+    return new Promise(function(resolve,reject){
+      const callbackName='loadLmcTimetable_'+Date.now()+'_'+Math.floor(Math.random()*100000);
+      const script=document.createElement('script');
+      const cleanup=function(){ try{ delete window[callbackName]; }catch(e){} script.remove(); };
+      window[callbackName]=function(data){ cleanup(); resolve(data); };
+      script.onerror=function(){ cleanup(); reject(new Error('timetable JSONP load error')); };
+      script.src='https://script.google.com/macros/s/AKfycbyx2C19BTn5Jz3P0NSmO6E033oZHplJ5NImyaSesjl_82kyjYbxX8dyKd5M2I3rtRpN/exec?mode=timetable&callback='+encodeURIComponent(callbackName)+'&ts='+Date.now();
+      document.head.appendChild(script);
+    });
+  }
+
   const bandsContainer=document.querySelector('#bands .bands');
   const bandsLoading=document.getElementById('bandsLoading');
 
@@ -121,18 +133,14 @@
         // BAND紹介のSTAGE時刻は、確認用タイテと同じデータを参照する
         const stagingStartTimes={};
         try{
-          const timetableResponse=await fetch('data/timetable-staging.json?ts='+Date.now(),{cache:'no-store'});
-          if(timetableResponse.ok){
-            const timetableItems=await timetableResponse.json();
-            if(Array.isArray(timetableItems)){
-              timetableItems.forEach(function(item){
-                const key=normalizeBandName(item.title);
-                if(stagingBandOrder.indexOf(key)>=0 && item.time){
-                  stagingStartTimes[key]=item.time;
-                }
-              });
+          const timetableData=await loadTimetableJsonp();
+          const timetableItems=(timetableData && Array.isArray(timetableData.timetable)) ? timetableData.timetable : [];
+          timetableItems.forEach(function(item){
+            const key=normalizeBandName(item.title);
+            if(stagingBandOrder.indexOf(key)>=0 && item.time){
+              stagingStartTimes[key]=item.time;
             }
-          }
+          });
         }catch(error){
           console.error('STAGE TIME LOAD ERROR',error);
         }
