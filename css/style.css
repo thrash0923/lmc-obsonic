@@ -344,7 +344,7 @@ section{position:relative;padding:82px 0;border-top:1px solid rgba(255,255,255,.
 }
 
 
-/* STAGING: compact band images */
+/* BANDS: compact band images */
 @media (min-width: 761px){
   .band-card-v161{
     grid-template-columns:minmax(210px,.65fr) 1.35fr;
@@ -364,7 +364,7 @@ section{position:relative;padding:82px 0;border-top:1px solid rgba(255,255,255,.
 }
 
 
-/* STAGING: global menu ENTRY simplified */
+/* BANDS: global menu ENTRY simplified */
 .nav-links .entry-link,
 .nav-links .entry-link:hover{
   color:var(--red)!important;
@@ -386,7 +386,7 @@ section{position:relative;padding:82px 0;border-top:1px solid rgba(255,255,255,.
 }
 
 
-/* STAGING: align ENTRY with other global nav items */
+/* BANDS: align ENTRY with other global nav items */
 .nav-links .entry-link,
 .nav-links .entry-link:hover{
   margin:0!important;
@@ -396,7 +396,7 @@ section{position:relative;padding:82px 0;border-top:1px solid rgba(255,255,255,.
 }
 
 
-/* STAGING: charity red-white cards intentionally have no image area */
+/* BANDS: charity red-white cards intentionally have no image area */
 .band-card-v161.band-card-no-visual{
   grid-template-columns:minmax(0,1fr)!important;
   min-height:0;
@@ -406,7 +406,7 @@ section{position:relative;padding:82px 0;border-top:1px solid rgba(255,255,255,.
 }
 
 
-/* STAGING: band images fit to image-column width without cropping */
+/* BANDS: band images fit to image-column width without cropping */
 .band-card-v161 .band-visual{
   display:flex;
   align-items:center;
@@ -433,7 +433,7 @@ section{position:relative;padding:82px 0;border-top:1px solid rgba(255,255,255,.
 }
 
 
-/* STAGING: band card v2 layout - title top, image left, details right */
+/* BANDS: band card v2 layout - title top, image left, details right */
 .band-card-v161{
   display:block;
   min-height:0;
@@ -488,7 +488,7 @@ section{position:relative;padding:82px 0;border-top:1px solid rgba(255,255,255,.
 }
 
 
-/* STAGING: genre treatment v2 */
+/* BANDS: genre treatment v2 */
 .band-genre-v2{
   margin:0 0 18px;
   padding:10px 0;
@@ -505,17 +505,3 @@ section{position:relative;padding:82px 0;border-top:1px solid rgba(255,255,255,.
 
 
 
-
-
-/* ENTRY: use the same text color as the other global navigation items */
-.nav-links .entry-link,
-.nav-links .entry-link:hover{
-  color:inherit!important;
-}
-
-
-/* Highlight BANDS in the global navigation */
-.nav-links .bands-link,
-.nav-links .bands-link:hover{
-  color:var(--red)!important;
-}
