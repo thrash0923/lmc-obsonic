@@ -273,18 +273,18 @@
 
 
 
-  // STAGING: 確認用タイムテーブル（安定表示）
+  // STAGING: Apps Script APIからタイテ進行表を自動取得（JSONP）
   const timetableBody=document.querySelector('#timetable tbody');
   if(timetableBody){
-    fetch('data/timetable-staging.json?ts='+Date.now(),{cache:'no-store'})
-      .then(function(response){
-        if(!response.ok) throw new Error('staging timetable HTTP '+response.status);
-        return response.json();
-      })
-      .then(function(items){
-        if(!Array.isArray(items) || !items.length) throw new Error('タイムテーブルデータが空です。');
+    const callbackName='renderLmcTimetable_'+Date.now();
+    const script=document.createElement('script');
+    window[callbackName]=function(data){
+      try{
+        if(!data || data.result!=='success' || !Array.isArray(data.timetable)){
+          throw new Error((data&&data.message)||'タイムテーブルAPIの応答が不正です。');
+        }
         timetableBody.innerHTML='';
-        items.forEach(function(item){
+        data.timetable.forEach(function(item){
           const row=document.createElement('tr');
           ['time','title','note'].forEach(function(key){
             const td=document.createElement('td');
@@ -293,11 +293,21 @@
           });
           timetableBody.appendChild(row);
         });
-      })
-      .catch(function(error){
+      }catch(error){
         console.error('TIMETABLE LOAD ERROR',error);
         timetableBody.innerHTML='<tr><td colspan="3">タイムテーブルを読み込めませんでした。</td></tr>';
-      });
+      }finally{
+        delete window[callbackName];
+        script.remove();
+      }
+    };
+    script.onerror=function(){
+      timetableBody.innerHTML='<tr><td colspan="3">タイムテーブルを読み込めませんでした。</td></tr>';
+      delete window[callbackName];
+      script.remove();
+    };
+    script.src='https://script.google.com/macros/s/AKfycbyx2C19BTn5Jz3P0NSmO6E033oZHplJ5NImyaSesjl_82kyjYbxX8dyKd5M2I3rtRpN/exec?mode=timetable&callback='+encodeURIComponent(callbackName)+'&ts='+Date.now();
+    document.head.appendChild(script);
   }
 
 })();
