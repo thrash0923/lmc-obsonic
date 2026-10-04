@@ -274,21 +274,17 @@
 
 
   // STAGING: 確認用タイムテーブル
-  // Apps Script の既存公開APIから取得する。Google Sheets gviz直読みはCORS/公開設定で失敗するため使用しない。
+  // タイテ進行表の確認用スナップショット。編集は必ず /test で先に確認し、本番は明示指示後のみ更新。
   const timetableBody=document.querySelector('#timetable tbody');
-
   if(timetableBody){
-    const timetableApi='https://script.google.com/macros/s/AKfycbyx2C19BTn5Jz3P0NSmO6E033oZHplJ5NImyaSesjl_82kyjYbxX8dyKd5M2I3rtRpN/exec';
-
-    fetch(timetableApi+'?mode=timetable&ts='+Date.now(),{cache:'no-store'})
+    const timetableUrl='data/timetable-staging.json?ts='+Date.now();
+    fetch(timetableUrl,{cache:'no-store'})
       .then(function(response){
-        if(!response.ok) throw new Error('timetable API HTTP '+response.status);
+        if(!response.ok) throw new Error('staging timetable HTTP '+response.status);
         return response.json();
       })
-      .then(function(data){
-        if(!data || data.result==='error') throw new Error((data&&data.message)||'timetable API error');
-        const items=Array.isArray(data.timetable) ? data.timetable : (Array.isArray(data) ? data : []);
-        if(!items.length) throw new Error('タイムテーブルデータが空です。');
+      .then(function(items){
+        if(!Array.isArray(items) || !items.length) throw new Error('タイムテーブルデータが空です。');
         timetableBody.innerHTML='';
         items.forEach(function(item){
           const row=document.createElement('tr');
