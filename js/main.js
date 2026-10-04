@@ -273,19 +273,34 @@
 
 
 
-  // タイムテーブルを data/timetable.json から生成
+  // STAGING: タイテ進行表（Google Sheets）から確認用タイムテーブルを生成
   const timetableBody=document.querySelector('#timetable tbody');
   const timetableLoading=document.getElementById('timetableLoading');
 
   if(timetableBody){
-    fetch('data/timetable.json', {cache:'no-store'})
-      .then(function(response){
-        if(!response.ok){
-          throw new Error('タイムテーブルデータを取得できませんでした。');
-        }
-        return response.json();
+    fetch('https://docs.google.com/spreadsheets/d/1uMhS_oL0Qbsb0WZeh02J9tKLGszrzARhLqwIEaAinKA/gviz/tq?tqx=out:json&sheet=' + encodeURIComponent('タイテ進行表') + '&range=A3:E25', {cache:'no-store'})
+      .then(function(response){ return response.text(); })
+      .then(function(text){
+        const match=text.match(/google\.visualization\.Query\.setResponse\((.*)\);?$/s);
+        if(!match){ throw new Error('タイテ進行表を取得できませんでした。'); }
+        const payload=JSON.parse(match[1]);
+        const rows=(payload.table && payload.table.rows) || [];
+        const cell=function(row,index){ return row && row.c && row.c[index] ? (row.c[index].f ?? row.c[index].v ?? '') : ''; };
+        const items=[];
+        // 上部設定
+        if(rows[0]) items.push({time:cell(rows[0],1),title:'入り',note:'出演者集合'});
+        if(rows[1]) items.push({time:cell(rows[1],1),title:'リハーサル',note:'音出し確認'});
+        if(rows[2]) items.push({time:cell(rows[2],1),title:'OPEN',note:'開場'});
+        // A10:E25 corresponds to rows index 7 onward in A3:E25
+        rows.slice(7).forEach(function(r){
+          const order=cell(r,0), name=cell(r,1), mins=cell(r,3), start=cell(r,4);
+          if(order && name) items.push({time:start,title:String(name).replace(/\n/g,' '),note:mins ? mins+'分' : ''});
+        });
+        if(rows[4]) items.push({time:cell(rows[4],1),title:'CLOSE',note:'閉会'});
+        return items;
       })
       .then(function(items){
+
         timetableBody.innerHTML='';
 
         if(!Array.isArray(items) || items.length===0){
