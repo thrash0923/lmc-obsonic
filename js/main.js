@@ -121,11 +121,10 @@
         // BAND紹介のSTAGE時刻は、確認用タイテと同じデータを参照する
         const stagingStartTimes={};
         try{
-          const timetableResponse=await fetch('https://script.google.com/macros/s/AKfycbyx2C19BTn5Jz3P0NSmO6E033oZHplJ5NImyaSesjl_82kyjYbxX8dyKd5M2I3rtRpN/exec?mode=timetable&ts='+Date.now(),{cache:'no-store'});
+          const timetableResponse=await fetch('data/timetable-staging.json?ts='+Date.now(),{cache:'no-store'});
           if(timetableResponse.ok){
-            const timetableData=await timetableResponse.json();
-            const timetableItems=(timetableData && Array.isArray(timetableData.timetable)) ? timetableData.timetable : [];
-            if(timetableItems.length){
+            const timetableItems=await timetableResponse.json();
+            if(Array.isArray(timetableItems)){
               timetableItems.forEach(function(item){
                 const key=normalizeBandName(item.title);
                 if(stagingBandOrder.indexOf(key)>=0 && item.time){
@@ -274,20 +273,18 @@
 
 
 
-  // STAGING: タイテ進行表をApps Script APIから自動取得
+  // STAGING: 確認用タイムテーブル（安定表示）
   const timetableBody=document.querySelector('#timetable tbody');
   if(timetableBody){
-    fetch('https://script.google.com/macros/s/AKfycbyx2C19BTn5Jz3P0NSmO6E033oZHplJ5NImyaSesjl_82kyjYbxX8dyKd5M2I3rtRpN/exec?mode=timetable&ts='+Date.now(),{cache:'no-store'})
+    fetch('data/timetable-staging.json?ts='+Date.now(),{cache:'no-store'})
       .then(function(response){
-        if(!response.ok) throw new Error('timetable API HTTP '+response.status);
+        if(!response.ok) throw new Error('staging timetable HTTP '+response.status);
         return response.json();
       })
-      .then(function(data){
-        if(!data || data.result!=='success' || !Array.isArray(data.timetable)){
-          throw new Error((data&&data.message)||'タイムテーブルAPIの応答が不正です。');
-        }
+      .then(function(items){
+        if(!Array.isArray(items) || !items.length) throw new Error('タイムテーブルデータが空です。');
         timetableBody.innerHTML='';
-        data.timetable.forEach(function(item){
+        items.forEach(function(item){
           const row=document.createElement('tr');
           ['time','title','note'].forEach(function(key){
             const td=document.createElement('td');
