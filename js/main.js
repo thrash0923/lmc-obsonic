@@ -65,7 +65,7 @@
   }
 
 
-  // STAGING: 出演管理シート（Apps Script）から確認用出演者一覧を生成
+  // 出演管理シート（Apps Script）から出演者一覧を生成
   const bandsContainer=document.querySelector('#bands .bands');
   const bandsLoading=document.getElementById('bandsLoading');
 
@@ -171,8 +171,21 @@
                 part.textContent=pieces.shift() || '';
                 memberName.textContent=pieces.join(' ');
               }else{
-                part.textContent=member.part || '';
-                memberName.textContent=member.name || '';
+                let displayName=String(member.name || '').trim();
+                let displayPart=String(member.part || '').trim();
+
+                // 名前の末尾にある半角/全角カッコ内をパートとして表示
+                // 例: ハカセ（Gt&Vo) → Gt&Vo / ハカセ
+                if(!displayPart){
+                  const match=displayName.match(/^(.+?)\s*[（(]([^（）()]+)[）)]\s*$/);
+                  if(match){
+                    displayName=match[1].trim();
+                    displayPart=match[2].trim();
+                  }
+                }
+
+                part.textContent=displayPart;
+                memberName.textContent=displayName;
               }
 
               row.appendChild(part);
@@ -182,19 +195,6 @@
 
             body.appendChild(members);
           }
-
-          const timeWrap=document.createElement('div');
-          timeWrap.className='band-performance-time';
-
-          const timeLabel=document.createElement('span');
-          timeLabel.textContent='STAGE';
-
-          const timeValue=document.createElement('strong');
-          timeValue.textContent=band.startTime || band.time || '';
-
-          timeWrap.appendChild(timeLabel);
-          timeWrap.appendChild(timeValue);
-          body.appendChild(timeWrap);
 
           if(!hideVisual){
             content.appendChild(visual);
