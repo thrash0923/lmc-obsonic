@@ -94,6 +94,7 @@
           'なんばひろみ ＆ Maximum Circus',
           'BLACK DOG',
           'DzTG',
+          'ピロウズのコピーバンド',
           'ZAKI & THE BEE BOYZ',
           '敬一バンド',
           'おしん a.k.a バク（SQUIRE）',
@@ -122,17 +123,18 @@
           'なんばひろみ ＆ Maximum Circus':'16:15',
           'BLACK DOG':'16:30',
           'DzTG':'16:45',
-          'ZAKI & THE BEE BOYZ':'17:00',
-          '敬一バンド':'17:10',
-          'おしん a.k.a バク（SQUIRE）':'17:25',
-          'SNB':'17:40',
-          '黒田ヒロシとラブ・アフェアーズ':'17:55',
-          'Dr.ZERO':'18:10',
-          'ドーター岡島閣下':'18:20',
-          '猪熊イトスネイク':'18:35',
-          'GELDNESS':'18:50',
-          'チャリティー紅白歌合戦 紅組：和田アキ子':'19:05',
-          'チャリティー紅白歌合戦 白組：北島三郎':'19:15'
+          'ピロウズのコピーバンド':'17:00',
+          'ZAKI & THE BEE BOYZ':'17:15',
+          '敬一バンド':'17:25',
+          'おしん a.k.a バク（SQUIRE）':'17:40',
+          'SNB':'17:55',
+          '黒田ヒロシとラブ・アフェアーズ':'18:10',
+          'Dr.ZERO':'18:25',
+          'ドーター岡島閣下':'18:35',
+          '猪熊イトスネイク':'18:50',
+          'GELDNESS':'19:05',
+          'チャリティー紅白歌合戦 紅組：和田アキ子':'19:20',
+          'チャリティー紅白歌合戦 白組：北島三郎':'19:30'
         };
 
         bands.forEach(function(band){
@@ -215,8 +217,21 @@
                 part.textContent=pieces.shift() || '';
                 memberName.textContent=pieces.join(' ');
               }else{
-                part.textContent=member.part || '';
-                memberName.textContent=member.name || '';
+                let displayName=String(member.name || '').trim();
+                let displayPart=String(member.part || '').trim();
+
+                // 名前の末尾にある半角/全角カッコ内をパートとして表示
+                // 例: ハカセ（Gt&Vo) → Gt&Vo / ハカセ
+                if(!displayPart){
+                  const match=displayName.match(/^(.+?)\s*[（(]([^（）()]+)[）)]\s*$/);
+                  if(match){
+                    displayName=match[1].trim();
+                    displayPart=match[2].trim();
+                  }
+                }
+
+                part.textContent=displayPart;
+                memberName.textContent=displayName;
               }
 
               row.appendChild(part);
