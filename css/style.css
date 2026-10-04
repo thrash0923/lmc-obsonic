@@ -505,3 +505,20 @@ section{position:relative;padding:82px 0;border-top:1px solid rgba(255,255,255,.
 
 
 
+
+
+/* === 2026 navigation emphasis: TIME TABLE / BANDS === */
+.nav-links .entry-link{
+  color:#ddd!important;
+  background:none!important;
+  padding:0!important;
+  border-radius:0!important;
+  box-shadow:none!important;
+  opacity:.82!important;
+}
+.nav-links .entry-link:hover{color:var(--red2)!important;filter:none!important;transform:none!important;opacity:1!important}
+.nav-links a[href*="#timetable"],
+.nav-links a[href*="#bands"]{
+  color:var(--red2)!important;
+  opacity:1!important;
+}
