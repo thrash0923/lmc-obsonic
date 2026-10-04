@@ -77,7 +77,7 @@
         }
         return response.json();
       })
-      .then(function(bands){
+      .then(async function(bands){
         bandsContainer.innerHTML='';
 
         if(!Array.isArray(bands) || bands.length===0){
@@ -118,24 +118,24 @@
           return av-bv;
         });
 
-        const stagingStartTimes={
-          '杉山田洋とホット・カルテット':'16:00',
-          'なんばひろみ ＆ Maximum Circus':'16:15',
-          'BLACK DOG':'16:30',
-          'DzTG':'16:45',
-          'ピロウズのコピーバンド':'17:00',
-          'ZAKI & THE BEE BOYZ':'17:15',
-          '敬一バンド':'17:25',
-          'おしん a.k.a バク（SQUIRE）':'17:40',
-          'SNB':'17:55',
-          '黒田ヒロシとラブ・アフェアーズ':'18:10',
-          'Dr.ZERO':'18:25',
-          'ドーター岡島閣下':'18:35',
-          '猪熊イトスネイク':'18:50',
-          'GELDNESS':'19:05',
-          'チャリティー紅白歌合戦 紅組：和田アキ子':'19:20',
-          'チャリティー紅白歌合戦 白組：北島三郎':'19:30'
-        };
+        // BAND紹介のSTAGE時刻は、確認用タイテと同じデータを参照する
+        const stagingStartTimes={};
+        try{
+          const timetableResponse=await fetch('data/timetable-staging.json?ts='+Date.now(),{cache:'no-store'});
+          if(timetableResponse.ok){
+            const timetableItems=await timetableResponse.json();
+            if(Array.isArray(timetableItems)){
+              timetableItems.forEach(function(item){
+                const key=normalizeBandName(item.title);
+                if(stagingBandOrder.indexOf(key)>=0 && item.time){
+                  stagingStartTimes[key]=item.time;
+                }
+              });
+            }
+          }
+        }catch(error){
+          console.error('STAGE TIME LOAD ERROR',error);
+        }
 
         bands.forEach(function(band){
           if(band.visible===false){
