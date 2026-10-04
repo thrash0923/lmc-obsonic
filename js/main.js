@@ -273,90 +273,36 @@
 
 
 
-  // STAGING: タイテ進行表（Google Sheets）から確認用タイムテーブルを生成
+  // STAGING: 確認用タイムテーブル
+  // Apps Script の既存公開APIから取得する。Google Sheets gviz直読みはCORS/公開設定で失敗するため使用しない。
   const timetableBody=document.querySelector('#timetable tbody');
-  const timetableLoading=document.getElementById('timetableLoading');
 
   if(timetableBody){
-    const timetableUrl='https://docs.google.com/spreadsheets/d/1uMhS_oL0Qbsb0WZeh02J9tKLGszrzARhLqwIEaAinKA/gviz/tq?tqx=out:json&sheet='
-      + encodeURIComponent('タイテ進行表') + '&range=A1:G100';
+    const timetableApi='https://script.google.com/macros/s/AKfycbyx2C19BTn5Jz3P0NSmO6E033oZHplJ5NImyaSesjl_82kyjYbxX8dyKd5M2I3rtRpN/exec';
 
-    fetch(timetableUrl,{cache:'no-store'})
+    fetch(timetableApi+'?mode=timetable&ts='+Date.now(),{cache:'no-store'})
       .then(function(response){
-        if(!response.ok) throw new Error('タイテ進行表 HTTP '+response.status);
-        return response.text();
+        if(!response.ok) throw new Error('timetable API HTTP '+response.status);
+        return response.json();
       })
-      .then(function(text){
-        const prefix='google.visualization.Query.setResponse(';
-        const p=text.indexOf(prefix);
-        const q=text.lastIndexOf(');');
-        if(p<0 || q<0) throw new Error('タイテ進行表の応答形式を確認できませんでした。');
-        const payload=JSON.parse(text.slice(p+prefix.length,q));
-        if(payload.status==='error') throw new Error('タイテ進行表: '+JSON.stringify(payload.errors||[]));
-
-        const rows=(payload.table && payload.table.rows) || [];
-        const cell=function(row,index){
-          const c=row && row.c && row.c[index];
-          if(!c) return '';
-          return c.f != null ? String(c.f) : (c.v != null ? String(c.v) : '');
-        };
-        const items=[];
-
-        // 上部設定 A1:G8
-        items.push({time:cell(rows[2],1),title:'入り',note:'出演者集合'});
-        items.push({time:cell(rows[3],1),title:'リハーサル開始',note:''});
-        items.push({time:cell(rows[4],1),title:'OPEN',note:'開場'});
-        items.push({time:cell(rows[5],1),title:'START',note:''});
-
-        // 進行表 A11:G100。種別BANDのみを確認ページに表示。
-        // MC等の内部進行は時間計算には使うが、公開タイテには出さない。
-        rows.slice(10).forEach(function(r){
-          const order=cell(r,0);
-          const name=cell(r,1);
-          const type=cell(r,2).trim().toUpperCase();
-          const mins=cell(r,4);
-          const startTime=cell(r,5);
-          if(order && name && type==='BAND'){
-            items.push({
-              time:startTime,
-              title:name.replace(/\n/g,' '),
-              note:mins ? mins+'分' : ''
-            });
-          }
-        });
-
-        items.push({time:cell(rows[7],1),title:'CLOSE',note:'閉会'});
-        return items.filter(function(item){ return item.time || item.title; });
-      })
-      .then(function(items){
+      .then(function(data){
+        if(!data || data.result==='error') throw new Error((data&&data.message)||'timetable API error');
+        const items=Array.isArray(data.timetable) ? data.timetable : (Array.isArray(data) ? data : []);
+        if(!items.length) throw new Error('タイムテーブルデータが空です。');
         timetableBody.innerHTML='';
-        if(!items.length) throw new Error('表示できるタイムテーブルがありません。');
-
         items.forEach(function(item){
           const row=document.createElement('tr');
-          const time=document.createElement('td');
-          const title=document.createElement('td');
-          const note=document.createElement('td');
-          time.textContent=item.time || '';
-          title.textContent=item.title || '';
-          note.textContent=item.note || '';
-          row.appendChild(time);
-          row.appendChild(title);
-          row.appendChild(note);
+          ['time','title','note'].forEach(function(key){
+            const td=document.createElement('td');
+            td.textContent=item[key] || '';
+            row.appendChild(td);
+          });
           timetableBody.appendChild(row);
         });
       })
       .catch(function(error){
-        console.error(error);
-        if(timetableBody){
-          timetableBody.innerHTML='';
-          const row=document.createElement('tr');
-          const cellEl=document.createElement('td');
-          cellEl.colSpan=3;
-          cellEl.textContent='タイムテーブルを読み込めませんでした。';
-          row.appendChild(cellEl);
-          timetableBody.appendChild(row);
-        }
+        console.error('TIMETABLE LOAD ERROR',error);
+        timetableBody.innerHTML='<tr><td colspan="3">タイムテーブルを読み込めませんでした。</td></tr>';
       });
   }
 
