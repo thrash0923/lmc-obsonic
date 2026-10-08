@@ -25,7 +25,7 @@
     startTime:"16:00",
     venueShort:"福島 THIRD STONE",
     venueAbout:"大阪福島 THIRD STONE",
-    ticket:"¥2,000［参加者全員／当日券のみ］+ 1Drink"
+    ticket:"¥2,000［参加者全員／当日券のみ］+ 1Drink ¥600"
   };
 
   /* ===== 自動生成項目：通常は編集不要 ===== */
