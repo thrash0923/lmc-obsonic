@@ -196,6 +196,33 @@
             body.appendChild(members);
           }
 
+          const timeWrap=document.createElement('div');
+          timeWrap.className='band-performance-time';
+          const timeLabel=document.createElement('span');
+          timeLabel.textContent='STAGE';
+          const timeValue=document.createElement('strong');
+          const stageTimes={
+            '杉山田洋とホット・カルテット':'16:00',
+            'なんばひろみ ＆ Maximum Circus':'16:15',
+            'BLACK DOG':'16:30',
+            'DzTG':'16:45',
+            'ピロウズのコピーバンド':'17:00',
+            'ZAKI & THE BEE BOYZ':'17:15',
+            '敬一バンド':'17:25',
+            'SNB':'17:45',
+            '黒田ヒロシとラブ・アフェアーズ':'18:00',
+            'Dr.ZERO':'18:15',
+            'ドーター岡島閣下':'18:30',
+            'GELDNESS':'18:45',
+            '猪熊イトスネイク':'19:00',
+            'チャリティー紅白歌合戦 紅組：和田アキ子':'19:20',
+            'チャリティー紅白歌合戦 白組：北島三郎':'19:30'
+          };
+          timeValue.textContent=stageTimes[String(band.name||'').replace(/\s+/g,' ').trim()] || band.startTime || band.time || '';
+          timeWrap.appendChild(timeLabel);
+          timeWrap.appendChild(timeValue);
+          body.appendChild(timeWrap);
+
           if(!hideVisual){
             content.appendChild(visual);
           }
