@@ -151,6 +151,14 @@
           }
 
           const normalizedBandName=normalizeBandName(band.name);
+          // 猪熊イトスネイクの氏名誤字を表示時に修正（元データは変更しない）
+          if(normalizedBandName==='猪熊イトスネイク'){
+            if(typeof band.description==='string') band.description=band.description.replaceAll('猪熊裕志','猪熊祐志');
+            if(Array.isArray(band.members)) band.members.forEach(function(member){
+              if(typeof member==='string') return;
+              if(member && typeof member.name==='string') member.name=member.name.replaceAll('猪熊裕志','猪熊祐志');
+            });
+          }
           if(stagingStartTimes[normalizedBandName]){
             band.startTime=stagingStartTimes[normalizedBandName];
           }
