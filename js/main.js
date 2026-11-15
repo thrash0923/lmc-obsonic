@@ -101,6 +101,14 @@
             return;
           }
 
+          // 猪熊イトスネイクの氏名表記のみ修正（元データは変更しない）
+          if(String(band.name || '').trim()==='猪熊イトスネイク'){
+            if(typeof band.description==='string') band.description=band.description.replaceAll('猪熊裕志','猪熊祐志');
+            if(Array.isArray(band.members)) band.members.forEach(function(member){
+              if(member && typeof member==='object' && typeof member.name==='string') member.name=member.name.replaceAll('猪熊裕志','猪熊祐志');
+            });
+          }
+
           const article=document.createElement('article');
           article.className='band-card band-card-v161';
 
